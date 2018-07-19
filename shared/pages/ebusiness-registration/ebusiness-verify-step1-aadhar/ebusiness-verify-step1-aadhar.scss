@@ -1,0 +1,45 @@
+page-ebusiness-verify-step1-aadhar {
+  .button12 {
+    background: none !important;
+    background-color: none !important;
+    box-shadow: none !important;
+    color: map-get($colors, primary);
+    text-transform: none;
+    font-size: 16px;
+  }
+  .btn {
+    width: 100% !important;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: map-get($colors, primary);
+    color: map-get($colors, white-a);
+    height: 65px;
+    border-radius: 5px;
+  }
+  ion-input {
+    border-bottom: 1px solid map-get($colors, primary);
+    ;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+  }
+  .text-input-md {
+    margin: 3px 8px;
+    padding: 0;
+    font-size: 26px;
+    width: calc(100% - 8px - 8px);
+    text-align: center !important;
+  }
+  .text-input-ios {
+    margin: 3px 8px;
+    padding: 0;
+    font-size: 26px;
+    width: calc(100% - 8px - 8px);
+    text-align: center !important;
+  }
+  .icon-white1 {
+    color: map-get($colors, white-a);
+    font-size: 40px;
+  }
+}

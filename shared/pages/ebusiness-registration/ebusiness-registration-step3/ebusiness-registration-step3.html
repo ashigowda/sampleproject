@@ -1,0 +1,38 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <ion-item class="subTitle" no-lines><b class="label-a" no-padding no-margin>Step 3 of 4</b></ion-item>
+    <p class="medium dark" padding-left no-margin>Terms & Conditions</p>
+    <ion-label text-wrap>Tap the link below and read them carefully.By checking the boxes,achnowledge that you have read and agree to the following
+        terms</ion-label>
+    <hr>
+    <div style="margin-top:20%">
+        <ion-row padding-left>
+            <ion-col col-2>
+                <ion-checkbox [(ngModel)]="all"></ion-checkbox>
+            </ion-col>
+            <ion-col class="medium dark">I agree to all</ion-col>
+        </ion-row>
+        <ion-row padding-left>
+            <ion-col col-2>
+                <ion-checkbox [(ngModel)]="privacy" disabled="false"></ion-checkbox>
+            </ion-col>
+            <ion-col class="medium dark">
+                <u>Mediserve Pharma Privacy Policy</u>
+            </ion-col>
+        </ion-row>
+        <ion-row padding-left>
+            <ion-col col-2>
+                <ion-checkbox [(ngModel)]="site" disabled="false"></ion-checkbox>
+            </ion-col>
+            <ion-col class="medium dark">
+                <u>User agreement and site policy</u>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>
+<ion-footer no-border>
+    <button ion-button (click)="agree()" class="button-footer">Agree</button>
+</ion-footer>

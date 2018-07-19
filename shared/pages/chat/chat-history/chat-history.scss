@@ -1,0 +1,69 @@
+page-chat-history {
+  .div2 {
+    margin-top: -100px;
+    margin-left: 76%;
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    border-radius: 100%;
+    background: map-get($colors, primary);
+  }
+  .icon2 {
+    color: map-get($colors, white-a);
+    padding-left: 14px !important;
+    padding-top: 5px !important;
+    font-size: 45px;
+  }
+  .div1 {
+    border-radius: 100%;
+    background: lightgray;
+    width: 60px;
+    height: 60px;
+    color: map-get($colors, black-a);
+    padding-left: 20px;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .label-md {
+    margin: 5px 8px 5px 5% !important;
+    color: map-get($colors, dark)
+  }
+  .row {
+    align-items: center !important;
+    ;
+  }
+  [col-6] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .col {
+    padding: 0px;
+    margin: 0px;
+  }
+  .back-btn {
+    font-weight: bold !important;
+    font-size: 30px !important;
+    width: 50px;
+    height: 45px;
+  }
+  .item-md[detail-push] .item-inner,
+  button.item-md:not([detail-none]) .item-inner,
+  a.item-md:not([detail-none]) .item-inner {
+    padding-right: 32px;
+    background-position: right 5px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+  }
+  .color-3 {
+    color: map-get($colors, primary);
+    font-weight: normal;
+  }
+  .color-4 {
+    color: #ff4400;
+    font-weight: normal;
+  }
+  .icon1 {
+    font-size: 35px;
+  }
+}

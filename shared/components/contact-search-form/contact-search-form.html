@@ -1,0 +1,34 @@
+<ion-searchbar placeholder="Search patient" (input)="getItems($event)" no-padding margin-top margin-bottom>
+</ion-searchbar>
+<ion-list *ngIf="clinicPatientsList|async as patient;else loadingOrError" no-padding no-margin lines>
+  <ion-item no-padding no-margin lines *ngFor="let patient of patient" (click)='close(patient._id)'>
+    <ion-avatar item-start>
+      <img *ngIf="patient?.member?.gender == 'female' || patient?.member?.gender == 'Female'" class="div-circle" src="../../../assets/imgs/female.png"
+      />
+      <img *ngIf="patient?.member?.gender == 'male' || patient?.member?.gender == 'Male'" class="div-circle" src="../../../assets/imgs/male.jpg"
+      />
+    </ion-avatar>
+    <ion-row no-padding no-margin>
+      <ion-col col-7 no-padding no-margin>
+        <label class="medium primary" text-capitalize no-padding no-margin>{{patient?.member?.firstName}}</label>
+      </ion-col>
+      <ion-col class="phoneIcon" margin-right no-padding>
+        <label float-right no-padding no-margin>
+          <ion-icon name="call" class="phone"></ion-icon> {{patient?.member?.phone}}</label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-7 style="font-size:12px;color:gray" no-padding text-capitalize>
+        {{patient?.member?.gender}}
+      </ion-col>
+      <ion-col class="visitIcon" margin-right no-padding >
+        <label float-right>
+          <ion-icon name="eye" class="time"></ion-icon> {{patient?.noOfVisits}}</label>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-list>
+<ng-template #loadingOrError>
+  <page-loading-patient-list></page-loading-patient-list>
+</ng-template>

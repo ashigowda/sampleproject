@@ -1,0 +1,18 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngFor="let file of files" no-padding no-margin>
+        <ion-item (click)="select(file)">{{file}}</ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer no-border>
+    <button ion-button class="button-half" disabled>Upload</button>
+    <button ion-button (click)="dismiss()" class="button-half">Cancel</button>
+</ion-footer>
+<ion-footer no-border *ngIf="select1 == true ">
+    <button ion-button (click)="gotoVerifyBusinessPage(selected_file)" class="button-half">Upload</button>
+    <button ion-button (click)="dismiss()" class="button-half">Cancel</button>
+</ion-footer>

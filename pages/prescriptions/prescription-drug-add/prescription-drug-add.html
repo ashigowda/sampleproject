@@ -1,0 +1,12 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <prescription-drug-form [list]='list' [frequent]='frequent' [prescriptionItem]='prescriptionItem' [frequent1]='frequent1'
+    [searchDrug]='searchdrug' [add]='add'></prescription-drug-form>
+</ion-content>
+
+<ion-footer no-border>
+  <button ion-button block (click)="addItem()" class="button-footer" no-margin no-padding>Add Item</button>
+</ion-footer>

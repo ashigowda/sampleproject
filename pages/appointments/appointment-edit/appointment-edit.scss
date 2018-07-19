@@ -1,0 +1,104 @@
+page-appointment-edit {
+  .textarea {
+    max-width: 350px !important;
+  }
+  .item {
+    background: none !important;
+  }
+  .btn {
+    width: 100% !important;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: map-get($colors, primary);
+    color: white;
+    height: 50px;
+    border-radius: 5px;
+  }
+  .btn:hover {
+    background-color: map-get($colors, danger);
+  }
+  .col {
+    margin: 3px !important;
+  }
+  .color1 {
+    border: 1px solid map-get($colors, primary);
+    border-radius: 5px;
+    background: map-get($colors, danger) !important;
+    color: map-get($colors, white-a) !important;
+    margin-left: 2% !important;
+    width: 98%;
+  }
+  .button2 {
+    background: none;
+    border: 1px solid map-get($colors, primary);
+    border-radius: 5px;
+    color: map-get($colors, primary);
+    width: 98%;
+  }
+  .row {
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+    width: 92%;
+  }
+  .div {
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+    width: 92%;
+  }
+  .bac-color {
+    background: map-get($colors, danger) !important;
+    color: map-get($colors, white-a);
+  }
+  .symptom {
+    color: white;
+    border-radius: 5px;
+    border: 1px solid map-get($colors, primary);
+    text-align: center;
+    background: map-get($colors, primary); // height: 30px
+  }
+  .div1 {
+    // color: white;
+    border-radius: 5px;
+    border: 1px solid map-get($colors, primary);
+    text-align: center; // background: map-get($colors, primary);
+    height: 30px
+  }
+  .divclass {
+    background: none;
+    width: 80%;
+    height: 50px;
+    padding: 5px!important;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+  .action-sheet-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    /* flex-flow: column; */
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: center;
+    height: auto;
+    max-height: 100%;
+    margin-top: 90%;
+    bottom:0%!important;
+  }
+  }
+  ion-action-sheet {
+    left: 0;
+    bottom: 0!important;
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    top:50%!important;
+    height: 50%!important;
+    
+}

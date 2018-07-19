@@ -1,0 +1,34 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-row>
+      <ion-col>clinic Name </ion-col>
+      <ion-col col-1>:</ion-col>
+      <ion-col>
+        <b class="dark medium" *ngIf="business | async;let business;else loadingOrError"> {{business?.tradingName}}</b>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="patient | async; let patient;else loadingOrError">
+      <ion-col>Patient Name </ion-col>
+      <ion-col col-1>:</ion-col>
+      <ion-col>
+        <b class="dark medium">{{patient?.member?.firstName }}{{patient?.member?.lastName}}</b>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-label padding top text-wrap> The patient registered to the clinic successfully</ion-label>
+
+  <ng-template #loadingOrError>
+      <page-loading></page-loading>
+    </ng-template>
+
+  <ion-footer>
+    <button ion-button *ngIf="patient | async; let patient" (click)='patientInformation(patient._id)' class="button-footer">Next</button>
+  </ion-footer>
+</ion-content>

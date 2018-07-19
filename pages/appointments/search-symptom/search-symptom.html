@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        Close
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar placeholder="Search symptom" (ionInput)="getItems($event)" [(ngModel)]="symptom" no-padding margin-top margin-bottom>
+  </ion-searchbar>
+
+  <ion-row>
+    <ion-col col-auto *ngFor="let addedsymptoms of appointment.symtoms;let i=index" class="symptom" text-wrap>{{addedsymptoms}}
+      <span padding-left></span>
+      <span (click)="removeSymptom(i)" padding-left> X</span>
+    </ion-col>
+
+  </ion-row>
+  <ion-list *ngIf="symptom" no-padding no-margin>
+    <ion-item *ngFor="let symptom1 of symptomsList|async;let i = index" class="symptom" text-wrap (click)="addThisSymptom(symptom1.key)"
+      no-padding no-margin>
+      <ion-row no-padding no-margin class="font">
+        <b> {{symptom1.key}} </b>
+      </ion-row>
+      <ion-row no-padding no-margin>{{symptom1?.description}}no description available</ion-row>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar placeholder="Search member by phone" type="number" [(ngModel)]='phone' (keyup.enter)="search(phone)"> no-padding margin-top margin-bottom>
+  </ion-searchbar>
+
+  <ion-list no-padding no-margin lines *ngIf="selectedMember|async as member">
+
+    <ion-item no-padding class="list-a" (click)='select(member.phone,member._id)' *ngFor="let member of member">
+      <ion-row no-padding no-margin>
+        <ion-col col-2 no-padding no-margin>
+          <div class="div-circle">
+            <ion-icon name="person" style="margin-left:10px"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col col-6 no-padding no-margin>
+          <ion-row>
+            <label class="medium primary">{{member.firstName }}{{member.lastName}}</label>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label class="z-small">{{member.phone}}
+                <i class="x-light">{{member.gender}}</i>
+              </label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-row>
+    <ion-col>
+      <button ion-button (click)='newMember()' class="button-footer">Create new member</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngIf="show == false && hide != true">
+      <button ion-button (click)='register()' class="button-footer" disabled>Register Member with Clinic</button>
+    </ion-col>
+    <ion-col *ngIf="hide == true">
+      <button ion-button (click)='register()' class="button-footer">Register Member with Clinic</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

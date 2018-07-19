@@ -1,0 +1,28 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+  </ion-header>
+  
+  <ion-content>
+    <div *ngIf = "clinicList|async as clinic;else loadingOrError">
+      <ion-card *ngFor="let clinic of clinic"  (click)="selectedClinic(clinic._id)">
+      <ion-row>
+        <ion-col col-8 class="large">
+          <b>{{clinic.tradingName}}</b>
+        </ion-col>
+        <ion-col class="medium black">{{clinic.phone}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="x-small light">{{clinic.address.address}},{{clinic.address.area}},{{clinic.address.city}}</ion-col>
+      </ion-row>
+    </ion-card>
+    </div>
+  
+
+    <ng-template #loadingOrError>
+        <page-loading [center]='center'></page-loading>
+      </ng-template>
+
+  </ion-content>
+  
+  
+  

@@ -1,0 +1,16 @@
+<!-- <button ion-button>
+<ion-row no-margin no-padding (click)="callPhone()">
+  <ion-col col-1 no-margin no-padding>
+    <ion-icon name="call" no-margin no-padding></ion-icon>
+  </ion-col>
+  <ion-col no-padding>
+    <ion-label no-margin margin-left class="x-small">Call Patient</ion-label>
+  </ion-col>
+</ion-row>
+</button> -->
+<button ion-button *ngIf= "small != 'small'" (click)="callPhone()" class="button-full">
+  <ion-icon name="call" style="margin-top:-5px" padding-right></ion-icon>Call Patient</button>
+
+
+<button ion-button *ngIf= "small == 'small'" block (click)="callPhone()">
+  <ion-icon name="call" id="small-icon"></ion-icon>Call Contact </button>

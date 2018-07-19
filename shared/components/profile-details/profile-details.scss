@@ -1,0 +1,66 @@
+profile-details {
+  ion-avatar img {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    margin: auto;
+    object-fit: cover;
+  }
+  .item-trns {
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0); //color: white; 
+  }
+  .skeleton-wrapper-body div {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderSkeleton;
+    -webkit-animation-timing-function: linear;
+    background: #f6f7f8;
+    background-image: -webkit-gradient(linear, left center, right center, from(#f6f7f8), color-stop(.2, #edeef1), color-stop(.4, #f6f7f8), to(#f6f7f8));
+    background-image: -webkit-linear-gradient(left, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+   // background-size: 800px 104px;
+    height: 104px;
+    position: relative;
+  }
+
+
+  .skeleton-wrapper-body div {
+    position: relative;
+    right: 15px;
+    left: 135px;
+    top: 40px;
+    align-content: center;
+    align-items: center;
+  }
+
+  div.skeleton-avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 60px;
+    right: auto;
+  }
+
+  .skeleton-content1{
+    height: 10px;
+    width:250px;
+  }
+
+  @-webkit-keyframes skeletonAnimate {
+    from {
+      background-position: top left;
+    }
+    to {
+      background-position: top right;
+    }
+}
+@-webkit-keyframes placeholderSkeleton {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+}

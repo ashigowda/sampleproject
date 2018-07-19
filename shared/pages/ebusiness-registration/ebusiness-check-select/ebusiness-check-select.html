@@ -1,0 +1,26 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <p class="notes">
+        Checking your Business Registration
+    </p>
+    <ion-card class="notes">
+        <p class="small wrap">Please wait</p>
+        <ion-spinner item-start name="dots"></ion-spinner>
+        <p>
+            {{message}}
+        </p>
+    </ion-card>
+    <ion-card *ngIf="response">
+        <ion-label class="medium wrap">
+            <pre>{{response}}</pre>
+        </ion-label>
+    </ion-card>
+</ion-content>
+
+<ion-footer no-border no-padding no-margin>
+    <button ion-button class="button-footer" (click)="register()">Register</button>
+    <button ion-button class="button-footer" (click)="logIn()">SignIn</button>
+</ion-footer>

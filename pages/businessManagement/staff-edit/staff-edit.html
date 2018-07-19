@@ -1,0 +1,54 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="tabIndex">
+    <ion-segment-button value="0">
+      User Details
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      Address
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      Role
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="tabIndex" *ngIf="user">
+    <ion-card padding-bottom *ngSwitchCase="0" lines>
+      <profile-form  [profile]='user?.user'></profile-form>
+    </ion-card>
+
+    <ion-card padding-bottom *ngSwitchCase="1" lines>
+      <address-form [address]='user?.user?.address'></address-form>
+    
+    </ion-card>
+    <ion-card padding-bottom *ngSwitchCase="2" lines>
+      <ion-list >
+        <ion-item margin-left>
+          <ion-label>Manager</ion-label>
+          <ion-checkbox [(ngModel)]="user.manager" value="manager"></ion-checkbox>
+        </ion-item>
+        <ion-item margin-left>
+          <ion-label>Sales</ion-label>
+          <ion-checkbox [(ngModel)]="user.sales" value="sales"></ion-checkbox>
+        </ion-item>
+        <ion-item margin-left>
+          <ion-label>Delivery</ion-label>
+          <ion-checkbox [(ngModel)]="user.delivery" value="delivery"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col col-6>
+      <button ion-button class="button-footer" (click)="cancel()"> Cancel </button>
+    </ion-col>
+    <ion-col col-6>
+      <button ion-button class="button-footer"  (click)="save(user)"> Update </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

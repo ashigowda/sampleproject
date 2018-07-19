@@ -1,0 +1,63 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content no-padding no-margin>
+  <button ion-button (click)="gotoPage()" class="button-full">Verify Aadhar (Owner KYC)</button>
+  <ion-row>
+    <ion-col col-2 padding-left>
+      <p>
+        <b>Note:</b>
+      </p>
+    </ion-col>
+    <ion-col>Please upload the following required documents for the business verification</ion-col>
+  </ion-row>
+  <ion-row padding-left padding-right>
+    <ion-col col-2 class="border">No</ion-col>
+    <ion-col col-2 class="border">Type</ion-col>
+    <ion-col col-8 class="border">Document</ion-col>
+  </ion-row>
+
+  <ion-row padding-left padding-right>
+    <ion-col col-2 class="border1 " padding>
+      <b>1</b>
+    </ion-col>
+    <ion-col col-2 class="border1">Id</ion-col>
+    <ion-col col-8 class="border1">driving_license.pdf
+      <ion-row no-margin no-padding>
+        <ion-col col-8 no-margin no-padding>
+          <ion-label text-wrap class="text">Write some notes about the file which you have uploaded</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="create" class = "create" margin-right></ion-icon>
+          <ion-icon name="trash" class = "trash"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row padding-left padding-right>
+    <ion-col col-2 class="border1 " padding>
+      <b>2</b>
+    </ion-col>
+    <ion-col col-2 class="border1" text-wrap>Address Proof</ion-col>
+    <ion-col col-8 class="border1">Bank_passbook.pdf
+      <ion-row>
+        <ion-col col-8 no-margin no-padding>
+          <ion-label text-wrap class="text">Write some notes about the file which you have uploaded</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="create" class = "create" margin-right></ion-icon>
+          <ion-icon name="trash" class = "trash"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+  </ion-row>
+  <button ion-button (click)="gotoUploadPage()" class="button-full">Upload Document</button>
+  <ion-label style="color:#ff6600 !important" float-right padding-right>Waiting for documents</ion-label>
+
+</ion-content>
+  <ion-footer no-border no-padding no-margin>
+    <button ion-button (click)="submit()" class="button-footer">Submit for Verification</button>
+  </ion-footer>

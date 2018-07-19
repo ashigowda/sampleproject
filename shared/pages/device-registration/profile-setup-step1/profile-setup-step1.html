@@ -1,0 +1,15 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <ion-label class="textCenter"><b><u>Step 1 of 2 </u></b></ion-label>
+    <ion-label class="medium"><b>Personal Details:</b> </ion-label>
+    <ion-card>
+       <profile-form [profile]='profile'></profile-form>
+    </ion-card>
+</ion-content>
+
+<ion-footer no-border no-padding no-margin>
+    <button ion-button class="button-footer" (click)="next()">Next</button>
+</ion-footer>

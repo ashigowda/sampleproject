@@ -1,0 +1,50 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <!-- <contact-select-form [data]='data' [members]='members' [data1]='data1' [contact]='contact' [data]='data'></contact-select-form> -->
+  <ion-col no-padding>
+    <button ion-button class="button-full" (click)="changePatient()">Change Contact</button>
+  </ion-col>
+  <ion-card *ngIf = "patient|async;let patient;else loadingOrError">
+      <ion-item>
+    <ion-avatar item-start>
+        <img *ngIf="patient?.member?.gender == 'female' || patient?.member?.gender == 'Female'" class="div-circle" src="../../../assets/imgs/female.png"
+        />
+        <img *ngIf="patient?.member?.gender == 'male' || patient?.member?.gender == 'Male'" class="div-circle" src="../../../assets/imgs/male.jpg"
+        />
+    </ion-avatar>
+
+    <ion-row no-padding no-margin>
+      <ion-col  no-padding no-margin>
+        <label class="medium primary" text-capitalize no-padding no-margin>{{patient?.member?.firstName}} {{patient?.member?.lastName}}</label>
+      </ion-col>
+      <ion-col class = "col-a" margin-right>
+        <label float-right no-padding no-margin>
+          <ion-icon name="call" class = "col-b"></ion-icon> {{patient?.member?.phone}}</label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="margin" no-margin no-padding>
+      <ion-col col-7 class = "col-c" text-capitalize>
+        {{patient?.member?.gender}}
+      </ion-col>
+      <ion-col class = "icon-x" margin-right>
+        <label float-right>
+          <ion-icon name="eye" class = "icon-y"></ion-icon> {{patient?.noOfVisits}}</label>
+      </ion-col>
+    </ion-row>
+    </ion-item>
+  </ion-card>
+  <ng-template #loadingOrError>
+      <page-loading [center]='center'></page-loading>
+    </ng-template>
+</ion-content>
+
+<ion-footer no-border *ngIf="data1 != 'create'">
+  <button ion-button block (click)="bookAppointment()" class="button-footer" no-margin no-padding>Book Appointment</button>
+</ion-footer>
+<ion-footer no-border *ngIf="data == 'edit'">
+  <button ion-button block (click)="bookAppointment1()" class="button-footer" no-margin no-padding>Book Appointment</button>
+</ion-footer>

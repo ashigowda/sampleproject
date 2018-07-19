@@ -1,0 +1,102 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Refreshing Patient List">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+ <contact-details-medium  [appointment]="appointment"></contact-details-medium>
+  <div *ngIf="appointment|async;let appointment;else loadingOrError">
+    <div *ngIf='appointment?.status == "closed"'>
+      <b margin-left class='medium light'>
+        <u>Appointment Summary</u>
+      </b>
+
+      <ion-card padding class='light'>
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Symptoms: </b>{{appointment.symtoms}}</ion-row>
+
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Notes: </b>{{appointment?.notes}}</ion-row>
+
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Visit Start: </b>{{appointment?.visitStart | date: 'dd:mm:yy hh:mm'}}
+        </ion-row>
+
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Visit End: </b>{{appointment?.visitEnd | date:'dd:mm:yy hh:mm'}}
+        </ion-row>
+      </ion-card>
+    </div>
+
+    <div *ngIf='appointment.status == "inprogress"'>
+      <b margin-left class='medium light'>
+        <u>Saved Appointment Notes</u>
+      </b>
+
+      <ion-card padding class='light'>
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Symptoms:</b>{{appointment.symtoms}}</ion-row>
+
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Notes:</b>{{appointment?.notes}}</ion-row>
+
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Visit Start: </b>{{appointment?.visitStart | date: 'dd:mm:yy hh:mm'}}
+        </ion-row>
+
+        <ion-row class="x-small" id="paddingBottom">
+          <b>Visit End: </b>{{appointment?.visitEnd | date:'dd:mm:yy hh:mm'}}
+        </ion-row>
+      </ion-card>
+    </div>
+
+    <ion-row>
+      <ion-col col-6 *ngIf='appointment.status == "new"'>
+        <button ion-button (click)="CancelAppointment()" block class="background-color">
+          <ion-icon name="trash" id="small-icon"></ion-icon> Cancel Appointment</button>
+      </ion-col>
+
+      <ion-col col-6 *ngIf='appointment.status == "closed" && appointment.status != "cancelled"'>
+        <button ion-button (click)="WritePrescription(appointment._id)" block>
+          <ion-icon name="clipboard" id="small-icon"></ion-icon> Write Prescription</button>
+      </ion-col>
+
+      <ion-col col-6 *ngIf='appointment.status != "cancelled" && appointment.status != "inprogress"'>
+        <call-contact [phone]='appointment?.member?.phone' [small]='small'></call-contact>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <call-contact *ngIf='appointment.status == "inprogress"' [phone]="appointment?.member?.phone"></call-contact>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col *ngIf='appointment.status == "new"'>
+        <button ion-button block (click)="visitPatient(appointment.patient._id)" class="button-full">
+          <ion-icon name="information-circle" id="small-icon"></ion-icon> Visit Patient</button>
+      </ion-col>
+
+      <ion-col *ngIf='appointment.status == "inprogress"'>
+        <button ion-button block (click)="visitPatient(appointment.patient._id)" class="button-full">
+          <ion-icon name="information-circle" id="small-icon"></ion-icon> Visit Patient again</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col *ngIf='appointment.status == "closed" && appointment.status != "cancelled"'>
+        <button ion-button block (click)="gotoinvoiceDetails()">
+          <ion-icon name="clipboard" id="small-icon"></ion-icon> Invoice Details</button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ng-template #loadingOrError>
+    <page-loading [center]='center'></page-loading>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,50 @@
+page-appointment-details {
+  .item-md {
+    background-color: none !important;
+    background: none;
+  }
+  .item-ios {
+    background-color: none !important;
+    background: none;
+  }
+  #small-icon {
+    color: map-get($colors, white-a);
+    font-size: 22px;
+    margin-right: 5px
+  }
+  .icon1 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+  .text-input-md {
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+    height: 23px !important;
+    padding-bottom: 2 !important;
+    text-align: center !important;
+  }
+  .border {
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  #paddingBottom {
+    padding-bottom: 8px !important;
+  }
+  .background-color {
+    background: map-get($colors, change) !important;
+  }
+  .status {
+    background-color: map-get($colors, change);
+    color: map-get($colors, white-a);
+  }
+  .button-md {
+    margin: 10px;
+    width: calc(100% - 20px) !important;
+  }
+  .button-ios {
+    margin: 10px;
+    width: calc(100% - 20px) !important;
+  }
+}

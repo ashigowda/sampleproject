@@ -1,0 +1,59 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+
+
+  <div *ngIf="user | async as user;else loadingOrError">
+    <ion-row ion-item text-center class="item-trns">
+      <ion-avatar (click)="changePhotoModal()">
+        <img src="{{imgPreview}}">
+      </ion-avatar>
+      <h2 text-capitalize class="primary">{{user.user?.firstName}} {{user.user?.lastName}}</h2>
+      <p>{{user.user?.dateOfBirth | date}}</p>
+    </ion-row>
+
+    <ion-row no-margin no-padding>
+      <ion-col col-1 no-paddding no-margin></ion-col>
+      <ion-col col-1 no-margin no-padding>
+        <ion-icon name="call" no-margin no-padding class="icon-small2"></ion-icon>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-label no-margin margin-left class="x-small">{{user.user?.phone}}</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-margin no-padding>
+      <ion-col col-1 no-paddding no-margin></ion-col>
+      <ion-col col-1 no-margin no-padding>
+        <ion-icon name="mail" no-margin no-padding class="icon-small2"></ion-icon>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-label no-margin margin-left no-margin no-padding class="x-small">{{user.user?.email}}</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-margin no-padding>
+      <ion-col col-1 no-paddding no-margin></ion-col>
+      <ion-col col-1 no-margin no-padding>
+        <ion-icon name="locate" no-margin no-padding class="icon-small2"></ion-icon>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-label no-margin margin-left class="x-small" text-wrap>{{user.user?.address?.addressName}}, {{user.user?.address?.address}}, {{user.user?.address?.area}}, {{user.user?.address?.city}},
+          {{user.user?.address?.state}}, {{user.user?.address?.country}}, {{user.user?.address?.pincode}}
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ng-template #loadingOrError>
+    <page-loading [center]="center"></page-loading>
+  </ng-template>
+
+
+
+  <ion-footer no-border>
+    <button ion-button class="button-footer" (click)="edit()" *ngIf = "archive != 'archive'"> Edit User</button>
+  </ion-footer>
+</ion-content>

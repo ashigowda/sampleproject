@@ -1,0 +1,70 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-label margin-top class="textCenter">
+    <u>Step 1 of 2 </u>
+  </ion-label>
+
+  <ion-label class="small">Symptoms:</ion-label>
+
+  <ion-row>
+    <ion-col col-auto *ngFor="let symptom of appointment.symtoms;let i = index" class="symptom" (mouseover)="mouseover=true"
+      (mouseout)="mouseover=false" text-wrap>{{symptom}}
+      <span padding-left></span>
+      <span (click)="removeSymptom(i)" padding-left> X</span>
+    </ion-col>
+    <ion-col class="div1" col-3 (click)="getInputField()">+ Add</ion-col>
+    <ion-card class="divclass" *ngIf="mouseover" no-margin>should display description of the symptom here</ion-card>
+
+  </ion-row>
+
+
+  <ion-label class="small">Appointment Date:</ion-label>
+  <ion-item no-lines no-margin no-padding>
+    <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Date" min = {{minDate}} max="2030-10-31" (ionChange)="appointmentDate(appointment.appointmentDate)"
+      [(ngModel)]="appointment.appointmentDate" title="hello"></ion-datetime>
+  </ion-item>
+
+  <ion-label class="small"> Doctor:</ion-label>
+
+  <ion-item no-lines no-margin no-padding>
+    <ion-select interface="action-sheet" [(ngModel)]="appointment.doctor">
+      <ion-option *ngFor="let user of user|async" value = {{user.user._id}}>{{user.user.firstName}} {{user.user.lastName}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- <ion-label class="small">Appointment Time:</ion-label>
+  <ion-item no-lines no-margin no-padding *ngIf="require == 'true'">
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm:A" minuteValues="00,15,30,45" (click)="getavailableappointments()"
+      (ionChange)="appointmentTime(appointment.appointmentTime)" [(ngModel)]="appointment.appointmentTime" style="border:1px solid #1f95d5!important;color:#1f95d6"></ion-datetime>
+  </ion-item> -->
+
+  <!-- <ion-item no-lines no-margin no-padding *ngIf="require != 'true'">
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm:A" minuteValues="00,15,30,45" (ionChange)="appointmentTime(appointment.appointmentTime)"
+      [(ngModel)]="appointment.appointmentTime" style="border:1px solid red!important;color:red"></ion-datetime>
+  </ion-item>
+  <ion-label *ngIf="require != 'true'" style="color:red;font-size:12px;" no-margin padding-left>* Appointment time can't be empty</ion-label> -->
+
+  <!-- <ion-label class="small">Appointment Time:</ion-label>
+  <ion-row *ngIf="appointmentList1 != undefined || appointmentList1 != null">
+    <ion-col col-4 *ngFor="let appointment of appointmentList1">
+      <button class="btn" disabled>{{appointment.appointmentTime}}</button>
+    </ion-col>
+  </ion-row>
+  <ion-row> -->
+    
+  <ion-label class="small">Appointment Time:</ion-label>
+  <ion-item no-padding no-margin>
+    <ion-select [(ngModel)]="appointment.appointmentTime" interface="action-sheet" no-margin>
+      <ion-option *ngFor="let time of timeSlots">{{time}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer no-border>
+  <button ion-button block (click)="createAppointment1()" class="button-footer" no-margin no-padding>Book Appointment</button>
+</ion-footer>

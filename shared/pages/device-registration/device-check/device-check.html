@@ -1,0 +1,32 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content center class="vertical-align-content">
+  <ion-grid>
+    <ion-row center>
+      <ion-col>
+        <p class="notes">
+          Checking your device
+        </p>
+        <ion-card class="notes">
+          <p class="small wrap">Please wait</p>
+          <ion-spinner item-start name="dots"></ion-spinner>
+          <p>
+            {{message}}
+          </p>
+        </ion-card>
+        <ion-card *ngIf="response">
+          <ion-label class="medium wrap">
+            {{response}}
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!--ion-footer no-border no-padding no-margin>
+    <button ion-button class="button-footer" (click)="gotoRegister()">Register</button>
+    <button ion-button class="button-footer" (click)="gotoSignin()">SignIn</button>
+</ion-footer -->

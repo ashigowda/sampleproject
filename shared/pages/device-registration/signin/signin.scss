@@ -1,0 +1,64 @@
+page-signin {
+  .button12 {
+    background: none !important;
+    background-color: none !important;
+    box-shadow: none !important;
+    color: map-get($colors, primary);
+    text-transform: none;
+    font-size: 16px;
+  }
+  .btn {
+    width: 100% !important;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: map-get($colors, primary);
+    color: white;
+    height: 65px;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  .btn:hover {
+    background-color: map-get($colors, primary);
+  }
+  .btn:active {
+    background-color: map-get($colors, primary);
+    // box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .error{
+    color:red;
+  }
+  
+  ion-input {
+    border-bottom: 1px solid map-get($colors, primary);
+    ;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+  }
+  .text-input-md {
+    margin: 3px 8px;
+    padding: 0;
+    font-size: 26px;
+    width: calc(100% - 8px - 8px);
+    text-align: center !important;
+  }
+  .text-input-ios {
+    margin: 3px 8px;
+    padding: 0;
+    font-size: 26px;
+    width: calc(100% - 8px - 8px);
+    text-align: center !important;
+  }
+  .icon-white1 {
+    color: white;
+    font-size: 40px;
+  }
+  .color {
+    color: map-get($colors, primary);
+    font-size: 30px;
+    padding-right: 5px;
+  }
+}

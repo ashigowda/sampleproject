@@ -1,0 +1,751 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.content {
+  background-color: map-get($colors, vibrant);
+}
+
+h5 {
+  color: map-get($colors, primary);
+  margin-left: 5%;
+}
+
+.select-md {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid map-get($colors, primary);
+  height: 40px;
+  max-width: 100% !important;
+  margin-left: 5% !important;
+}
+
+ion-input {
+  border: 1px solid map-get($colors, primary);
+  border-radius: 5px;
+  height: 40px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.status {
+  background-color: map-get($colors, change);
+  color: map-get($colors, white-a);
+}
+.border {
+  padding-left: 6px;
+  padding-right: 6px;
+  text-align: center;
+  border-radius: 6px;
+}
+.label-md {
+  margin: 13px 8px 5px 5%;
+  color: map-get($colors, dark);
+  font-size: 16px;
+}
+
+.label-ios {
+  margin: 13px 8px 5px 5% !important;
+  color: map-get($colors, dark);
+  font-size: 16px;
+}
+
+.label-wp {
+  margin: 5px 0px 0px 3% !important;
+  color: map-get($colors, dark);
+  font-size: 16px;
+}
+
+.color {
+  color: map-get($colors, danger);
+}
+
+.large {
+  font-size: 18px;
+}
+
+.medium {
+  font-size: 16px;
+}
+
+.x-medium {
+  font-size: 17px;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.y-small {
+  font-size: 15px;
+}
+
+.x-small {
+  font-size: 14px;
+}
+.xx-small{
+  font-size:13px;
+}
+
+.z-small {
+  font-size: 13px;
+}
+
+.dark {
+  color: map-get($colors, black-a);
+}
+
+.light {
+  color: map-get($colors, dark);
+}
+
+.x-light {
+  color: map-get($colors, dark-a);
+}
+
+.white {
+  color: map-get($colors, white-a);
+}
+
+.primary {
+  color: map-get($colors, primary)
+}
+
+.select-text {
+  overflow: visible;
+}
+
+.select-ios {
+  width: 93%;
+  border-radius: 5px;
+  border: 1px solid map-get($colors, primary);
+  height: 40px;
+  max-width: 100% !important;
+  margin-left: 5% !important;
+}
+
+.select-wp {
+  width: 93%;
+  border-radius: 5px;
+  border: 1px solid map-get($colors, primary);
+  height: 40px;
+  max-width: 100% !important;
+  margin-left: 5% !important;
+}
+
+.tabs-wp[tabsPlacement=bottom] .tab-button[aria-selected=true] {
+  border: 0px;
+  border-color: none;
+}
+
+.datetime-md {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid map-get($colors, primary);
+  height: 40px;
+  max-width: 100% !important;
+  margin-left: 5% !important;
+}
+
+.datetime-ios {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid map-get($colors, primary);
+  height: 40px;
+  max-width: 100% !important;
+  margin-left: 5% !important;
+}
+
+.datetime-wp {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid map-get($colors, primary);
+  height: 40px;
+  max-width: 100% !important;
+  margin-left: 5% !important;
+}
+
+ion-textarea {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid map-get($colors, primary);
+  height: 60px;
+  max-width: 90% !important;
+  margin-left: 5% !important;
+}
+
+.toolbar-title-md {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0px !important;
+  overflow: visible;
+}
+
+.toolbar-title-ios {
+  font-size: 24px;
+  text-align: center;
+  overflow: visible;
+  padding: 0px !important;
+  font-weight: bold;
+}
+
+.toolbar-title-wp {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0px !important;
+  overflow: visible;
+  text-transform: none;
+}
+
+.toolbar-wp {
+  vertical-align: middle;
+  text-align: center;
+  min-height: 56px;
+}
+
+.text-input-wp {
+  border: 0px;
+  padding: 0px;
+}
+
+//start page title
+.title-top {
+  color: map-get($colors, primary);
+  font-family: snap ITC;
+  font-size: 40px;
+  text-align: center;
+}
+
+//full length button
+.button-full {
+  width: 90%;
+  border-radius: 5px;
+  height: 45px;
+  font-weight: bold;
+  background-color: map-get($colors, primary);
+  text-transform: none !important;
+}
+
+//three button in a line
+.button-small {
+  width: 96%;
+  margin-left: 2% !important;
+  border-radius: 5px;
+  height: 35px;
+  text-transform: none !important;
+}
+
+.button-half {
+  width: 45%;
+  margin-left: 3% !important;
+  border-radius: 5px;
+  height: 45px;
+  font-weight: bold;
+  background-color: map-get($colors, primary);
+  text-transform: none !important;
+}
+
+.subTitle {
+  background-color: map-get($colors, dark-x)!important;
+  width: 100%;
+  height: 45px!important;
+  text-align: center;
+  color: map-get($colors, black-a);
+  padding: 5px;
+  max-height: 45px!important;
+}
+
+ion-header ion-icon.back-button-icon.icon,
+ion-header span.back-button-text.back-button-text {
+  color: map-get($colors, white-a);
+  ;
+}
+
+.item-md ion-icon[item-left]+.item-inner,
+.item-md ion-icon[item-left]+.item-input,
+.item-md ion-icon[item-start]+.item-inner,
+.item-md ion-icon[item-start]+.item-input {
+  margin-left: 0px !important;
+}
+
+.item-ios ion-icon[item-left]+.item-inner,
+.item-md ion-icon[item-left]+.item-input,
+.item-md ion-icon[item-start]+.item-inner,
+.item-md ion-icon[item-start]+.item-input {
+  margin-left: 0px !important;
+}
+
+.item-wp ion-icon[item-left]+.item-inner,
+.item-md ion-icon[item-left]+.item-input,
+.item-md ion-icon[item-start]+.item-inner,
+.item-md ion-icon[item-start]+.item-input {
+  margin-left: 0px !important;
+}
+
+.item-md ion-icon[item-left] {
+  margin-top: 17px;
+}
+
+.item-ios ion-icon[item-left] {
+  margin-top: 17px;
+}
+
+.item-wp ion-icon[item-left] {
+  margin-top: 17px;
+}
+
+.toolbar-background {
+  background: $app-background;
+}
+
+.searchbar-md .searchbar-input {
+  border-radius: 100px;
+  border-color: 1px solid map-get($colors, primary);
+  width: 90%;
+  margin-left: 5%;
+}
+
+.searchbar-ios .searchbar-input {
+  border-radius: 100px;
+  width: 90%;
+  margin-left: 5%;
+  border-color: 1px solid map-get($colors, primary);
+}
+
+.searchbar-md .searchbar-search-icon,
+.searchbar-md .searchbar-md-cancel {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  margin-left: 5% !important;
+}
+
+.searchbar-ios .searchbar-search-icon,
+.searchbar-ios .searchbar-ios-cancel {
+  position: absolute;
+  background-repeat: no-repeat;
+  margin-left: 5% !important;
+}
+
+.searchbar-wp .searchbar-input-container {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+  margin: 3%;
+}
+
+.tab-button-text,
+.tab-button-icon {
+  overflow: visible;
+}
+
+.segment-wp .segment-button {
+  width: 50%;
+}
+
+.searchbar-wp .searchbar-input {
+  border-radius: 100px;
+}
+
+.button-add {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: $app-background;
+  float: right;
+  bottom: 70px !important;
+  right: 20px !important;
+  position: fixed;
+}
+
+.icon-add {
+  color: white !important;
+  padding-left: 14px;
+  padding-top: 5px;
+  font-size: 30px;
+  margin: 0px !important;
+  font-weight: bold;
+}
+
+.card-content {
+  color: map-get($colors, primary) !important;
+  font-size: 15px !important;
+}
+
+.devider {
+  background: map-get($colors, dark-a)!important;
+  font-size: 16px;
+  width: 100%;
+  min-height: 40px!important;
+  text-align: center;
+  color: map-get($colors, white-a) !important;
+  vertical-align: middle!important;
+  
+}
+
+::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.div-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 2%;
+  border:1px solid lightgray;
+ // border: 1px solid map-get($colors, dark);
+}
+.marginTop{
+  margin-top:20%;
+
+}
+.bigIcon{
+  font-size:150px;
+}
+.textCenter{
+  text-align: center!important;
+}
+.age{
+  font-size:11px;
+  color:gray;
+}
+.number{
+  font-size:15px;color:#f43;
+}
+.phoneIcon{
+  color:black;font-size:14px;color:darkgreen
+}
+.phone{
+  font-size:17px;color:darkgreen
+}
+.doctorIcon{
+  width:18px;height:15px;
+}
+#doctor{
+  color:rgb(167, 92, 7)
+}
+.emailIcon{
+  font-size:13px;color:#287;
+}
+.email{
+  font-size:17px;color:#287;
+}
+.symptoms{
+  color:rgb(3, 6, 10);font-size:13px
+}
+.timeIcon{
+  font-size:12px;color:chocolate;
+}
+.time{
+  font-size:17px;color:chocolate;
+}
+.visitIcon{
+  font-size:14px;color:chocolate;
+}
+.gray{
+  color:darkgray;
+}
+.row {
+  align-items: center !important;
+}
+
+.icon-small {
+  font-size: 20px !important;
+  color: map-get($colors, white-a);
+}
+
+.icon-small1 {
+  font-size: 20px !important;
+  color: map-get($colors, dark);
+}
+
+.icon-small2 {
+  font-size: 20px !important;
+  color: map-get($colors, primary);
+}
+
+.icon-white {
+  color: map-get($colors, white-a);
+  font-size: 25px;
+}
+
+.back-button-icon-md {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.card-font {
+  color: map-get($colors, secondary);
+  ;
+  font-size: 16px
+}
+
+.back-button-icon-ios {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.alert-sub-title {
+  color: map-get($colors, primary)
+}
+.tabs-ios .tab-button-icon {
+  margin-top: 4px;
+  margin-bottom: 1px;
+  min-width: 35px;
+  height: 30px;
+  font-size: 25px;
+  color: #8c8c8c;
+}
+.tabs-md .tab-button-icon {
+  margin-top: 4px;
+  margin-bottom: 1px;
+  min-width: 35px;
+  height: 30px;
+  font-size: 25px;
+  color: #8c8c8c;
+}
+.item-md[detail-push] .item-inner,
+button.item-md:not([detail-none]) .item-inner,
+a.item-md:not([detail-none]) .item-inner {
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+}
+
+.item-ios[detail-push] .item-inner,
+button.item-ios:not([detail-none]) .item-inner,
+a.item-ios:not([detail-none]) .item-inner {
+  float: right;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+}
+.button:hover {
+  background-color: map-get($colors, primary);
+}
+.button:active {
+  background-color: map-get($colors, primary);
+  //box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text {
+  margin-top: 4px;
+  margin-bottom: 0;
+  overflow: visible;
+  font-size: 9px!important;
+}
+
+.tabs-ios[tabsLayout=icon-top] .has-icon .tab-button-text {
+  margin-top: 4px;
+  margin-bottom: 0;
+  overflow: visible;
+  font-size: 9px;
+}
+
+@media only screen and (min-width: 400px) {
+  // .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text {
+  //   margin-top: 4px;
+  //   margin-bottom: 0;
+  //   overflow: visible;
+  //   font-size: 14px;
+  // }
+  // .tabs-ios[tabsLayout=icon-top] .has-icon .tab-button-text {
+  //   margin-top: 4px;
+  //   margin-bottom: 0;
+  //   overflow: visible;
+  //   font-size: 14px;
+  // }
+  .toolbar-title-md {
+    color: map-get($colors, white-a);
+    text-align: center;
+    font-weight: bold;
+    overflow: visible;
+  }
+  .toolbar-title-ios {
+    color: map-get($colors, white-a);
+    text-align: center;
+    font-weight: bold;
+    overflow: visible;
+  }
+  ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+}
+
+.title-md {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 70%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.content {
+  color: map-get($colors, primary);
+}
+
+.item-input-has-focus .input-cover,
+.input-has-focus .input-cover {
+  touch-action: none;
+  display: none;
+}
+
+.item-textarea-has-focus .textarea-cover,
+.textarea-has-focus .textarea-cover {
+  touch-action: none;
+  display: none;
+}
+
+.item-md.item-block .item-inner {
+  padding-right: 0px;
+  width: 90%;
+  border-bottom: 1px solid map-get($colors, dark-x);
+  ;
+}
+
+.item-ios.item-block .item-inner {
+  padding-right: 0px;
+  width: 90%;
+  border-bottom: 1px solid map-get($colors, dark-x);
+  ;
+}
+
+ion-fab[bottom] {
+  bottom: 35px !important
+}
+
+ion-fab[right] {
+  bottom: 35px !important;
+}
+
+.fab-button {
+  color: map-get($colors, white-a) !important;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.fab-md {
+  background: $app-background;
+}
+
+.fab-ios {
+  background: $app-background;
+}
+
+.button-footer {
+  width: 100% !important;
+  border-radius: 5px !important;
+  text-transform: none;
+  height: 45px!important;
+  margin: 0px !important;
+  border-radius: 0px !important;
+}
+
+.fab-btn {
+  width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 100%;
+  color: map-get($colors, white-a);
+  font-weight: bold;
+}
+
+.fab ion-icon {
+  color: map-get($colors, white-a);
+}
+
+.scroll-content {
+  overflow-y: auto;
+}
+
+.alert-md .alert-title {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  color: map-get($colors, primary);
+}
+
+.card-md {
+  font-size: 1.5rem;
+}
+
+.button-md {
+  text-transform: none !important;
+  font-weight: normal;
+  border-radius: 5px;
+}
+
+.button-ios {
+  text-transform: none !important;
+  font-weight: normal;
+  border-radius: 5px;
+}
+#componentMargin{
+  margin-left:5%!important;margin-top:12%!important
+}
+.patients{
+  color:white;font-size:20px
+}
+.iconForword{
+  font-size:30px;margin-top:10px
+}
+.notesAdd{
+  margin-top:37px;margin-left:33px
+}
+.notesmargin{
+  margin-top:37px
+}
+.chatRegister{
+  color:#cc0033;font-size:20px;padding-top:60%;
+}
+.height{
+  height:45px!important;
+}
+::-webkit-scrollbar-thumb {
+  background: gray;
+}
+.spinner-center *{
+  position: fixed;
+  z-index: 999;
+ height: 4em;
+  width: em;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.animated-background {
+  animation-duration: 3.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: placeHolderShimmer;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  height: 16px;
+  position: relative;
+}
+.background-masker {
+  top: 10px;
+  left: 40px;
+  height: 8px;
+  width: 10px;
+}

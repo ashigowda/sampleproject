@@ -1,0 +1,78 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="appointment as appointment;else loadingOrError">
+    <!-- <contact-details-medium [appointment]="appointment"></contact-details-medium> -->
+    <ion-card >
+      <ion-row>
+        <ion-col col-8 no-margin padding-left class="medium primary" text-capitalize>
+          <b>{{appointment?.member?.firstName}} {{appointment?.member?.lastName}}</b>
+          <i no-padding no-margin class="small x-light">({{appointment?.member?.age}}age)</i>
+        </ion-col>
+        <ion-col padding-right no-margin class="medium light" text-capitalize>
+          <div float-right>Dr.{{appointment?.doctor?.firstName}} </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-8 padding-left no-margin class="small x-light">{{appointment?.member?.phone}}</ion-col>
+        <ion-col padding-right no-margin class="small dark">
+          <div float-right>{{appointment?.symtoms}}</div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row padding-bottom>
+        <ion-col col-8 padding-left no-margin class="x-small light">{{appointment?.appointmentDate |date}},{{appointment?.appointmentTime}}</ion-col>
+        <ion-col padding-right no-margin class="x-small x-light">
+          <div class="status border" float-right>{{appointment?.status}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-label margin-top>Symtoms:</ion-label>
+
+    <ion-searchbar placeholder="Search Symptom" (ionInput)="getDrug($event)" [(ngModel)]="searchDrug" (ionClear)="onClear($event)"
+      (ionCancel)="onCancel($event)" no-padding margin-top margin-bottom></ion-searchbar>
+    <ion-row *ngFor="let drug of list">
+      <ion-col col-1></ion-col>
+      <ion-col col-3>
+        <div class="div1">{{drug.symptom}}
+          <ion-icon name="{{drug.icon}}" class="drug" float-right (click)="close(drug.symptom)"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col col-3>
+        <div class="div1">{{drug.symptom1}}
+          <ion-icon name="{{drug.icon}}" class="drug" float-right (click)="close()"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col col-3>
+        <div class="div1">{{drug.symptom2}}
+          <ion-icon name="{{drug.icon}}" class="drug" float-right (click)="close()"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+    <ion-label margin-left class="small">Notes:</ion-label>
+    <ion-textarea [(ngModel)]="appointment.notes" placeholder="enter notes"></ion-textarea>
+    <ion-row padding-left *ngIf="patientHealth | async;let patientHealth">
+      <ion-col padding-left>
+        <i class="color">patient Visit Count is: {{appointment?.patient?.noOfVisits}}</i>
+      </ion-col>
+      <ion-col>
+        <u class="primary" *ngIf='patientHealth[0] == undefined' (click)="gotoAddInformation()">Add more patient's details</u>
+      </ion-col>
+      <ion-col>
+        <u class="primary" *ngIf='patientHealth[0] != undefined' (click)="gotoViewInformation()">View more patient's details</u>
+      </ion-col>
+    </ion-row>
+    <ng-template #loadingOrError>
+      <page-loading [center]='center'></page-loading>
+    </ng-template>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <button ion-button (click)="save()" class="button-half height" no-padding no-margin>Save</button>
+  <button ion-button (click)="visit()" class="button-half height" no-padding no-margin>End Visit</button>
+</ion-footer>

@@ -1,0 +1,12 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Refreshing Patient List">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <contact-search-form [patients]='clinicPatientsList' [data]='data' [center]="center"></contact-search-form>
+</ion-content>

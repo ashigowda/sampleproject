@@ -1,0 +1,36 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="tabIndex">
+    <ion-segment-button value="0">
+      Business Details
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      Address
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="tabIndex" *ngIf="business">
+    <ion-card padding-bottom *ngSwitchCase="0" lines>
+      <business-form  [business]='business'></business-form>
+    </ion-card>
+
+    <ion-card padding-bottom *ngSwitchCase="1" lines>
+      <address-form [address]='business.address'></address-form>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col col-6>
+      <button ion-button class="button-footer" (click)="cancel()"> Cancel </button>
+    </ion-col>
+    <ion-col col-6>
+      <button ion-button class="button-footer" (click)="update(business)" > Update </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

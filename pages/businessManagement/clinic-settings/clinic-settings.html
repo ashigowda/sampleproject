@@ -1,0 +1,11 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content padding-top no-margin>
+  <business-details  [business]='business' [center] = "center"></business-details>
+</ion-content>
+
+<ion-footer no-border>
+  <button ion-button (click)="edit()" class="button-footer"> Edit Setting</button>
+</ion-footer>

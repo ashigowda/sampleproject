@@ -1,0 +1,20 @@
+<ion-label class="x-small">Medical Registered Name:</ion-label>
+<ion-input type="text" placeholder="Medical Registered Name" [(ngModel)]="business.registeredName" maxLength="20" (keyup.enter)="a.setFocus()"></ion-input>
+
+<ion-label class="x-small">Medical Trading Name:</ion-label>
+<ion-input type="text" placeholder="Medical Trading Name" [(ngModel)]="business.tradingName" maxLength="20" #a (keyup.enter)="b.setFocus()"></ion-input>
+
+<ion-label class="x-small">Medical Licence No.:</ion-label>
+<ion-input type="text" placeholder="Medical Licence No." [(ngModel)]="business.licenseNo" maxLength="20" #b (keyup.enter)="c.setFocus()"></ion-input>
+
+<ion-label class="x-small">Business Type:</ion-label>
+<ion-input type="text" placeholder="business type" [(ngModel)]="business.businessType" maxLength="20" #c (keyup.enter)="d.setFocus()"></ion-input>
+
+<ion-label class="x-small">Phone No:</ion-label>
+<ion-input type="tel" placeholder="Phone Number" [(ngModel)]="business.phone" maxLength="10" #d (keyup.enter)="e.setFocus()"></ion-input>
+
+<ion-label class="x-small">Email:</ion-label>
+<ion-input type="email" placeholder="Email" [(ngModel)]="business.email" #e ></ion-input>
+
+<ion-label class="x-small">Description:</ion-label>
+<ion-textarea [(ngModel)]="business.description" margin-bottom ></ion-textarea>

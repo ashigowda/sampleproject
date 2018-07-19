@@ -1,0 +1,41 @@
+page-patient-profile {
+  ion-avatar img {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    margin: auto;
+    object-fit: cover;
+  }
+  .item-trns {
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0); //color: white; 
+  }
+  .div-circle {
+    width: 30%;
+    height: 25%;
+    border-radius: 50%;
+    margin-left: 35%;
+    margin-top: 5%;
+    background-color: white;
+  }
+  .label-a {
+    color: map-get($colors, primary);
+    font-weight: normal;
+  }
+  .icon {
+    font-size: 30px;
+  }
+  .label-md {
+    margin: 5px !important;
+  }
+  .label-ios {
+    margin: 5px !important;
+  }
+  .label-wp {
+    margin: 4px !important;
+    color: map-get($colors, primary);
+  }
+  .item-md.item-block .item-inner {
+    padding-right: 0px;
+  }
+}

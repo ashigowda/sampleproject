@@ -1,0 +1,16 @@
+page-contact-add-step2 {
+  ion-item {
+    color: map-get($colors, primary);
+  }
+  .button1 {
+    width: 90% !important;
+    margin-top: 5%;
+    margin-left: 5% !important;
+    color: map-get($colors, primary) !important;
+    background-color: map-get($colors, white-a) !important;
+    border-radius: 100px !important;
+    height: 45px;
+    text-transform: none;
+    font-size: 17px;
+  }
+}

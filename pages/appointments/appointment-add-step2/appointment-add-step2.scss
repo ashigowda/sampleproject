@@ -1,0 +1,38 @@
+page-appointment-add-step2 {
+  .label-md {
+    margin: 13px 8px 1px 5% !important;
+    font-weight: normal !important;
+  }
+  .item-md {
+    background-color: none !important;
+    background: none;
+  }
+  .item-ios {
+    background-color: none !important;
+    background: none;
+  }
+  .button-md {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    border-radius: 5px;
+  }
+  .button-ios {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+  .div1 {
+    margin-top: 20%;
+  }
+  .status {
+    background-color: map-get($colors, change);
+    color: map-get($colors, white-a);
+  }
+  .border {
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    border-radius: 6px;
+  }
+}

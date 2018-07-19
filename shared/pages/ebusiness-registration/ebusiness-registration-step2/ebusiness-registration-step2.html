@@ -1,0 +1,14 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <ion-item class="subTitle" no-lines><b class="label-a" no-padding no-margin>Step 2 of 4</b></ion-item>
+    <ion-card padding-bottom lines>
+        <address-form [address]='business.address'></address-form>
+    </ion-card>
+</ion-content>
+
+<ion-footer no-border>
+    <button ion-button (click)="next()" class="button-footer">Next</button>
+</ion-footer>

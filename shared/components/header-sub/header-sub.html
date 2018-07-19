@@ -1,0 +1,9 @@
+<div class="subTitle" text-capitalize>
+  <i *ngIf="business|async as business;else loadingOrError" class="center" no-padding no-margin>{{business?.tradingName}}</i>
+  <br/>
+  <i class="x-small" *ngIf="profile|async as profile; else loadingOrError" class="center" no-padding no-margin> {{profile?.firstName}} {{profile?.lastName}} (Sales)</i>
+</div>
+
+<ng-template #loadingOrError>
+  <page-loading></page-loading>
+</ng-template>

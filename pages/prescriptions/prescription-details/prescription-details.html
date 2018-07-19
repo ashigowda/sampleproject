@@ -1,0 +1,126 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="prescription | async;let prescription;else loadingOrError">
+
+    <div class="div-c">
+      <ion-row padding-top>
+        <ion-col>
+          <ion-label class="large" text-capitalize>
+            <b>Dr.{{prescription?.doctor?.firstName}}{{prescription?.doctor?.lastName}}</b>
+          </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label class="x-small" float-right>{{prescription?.doctor?.address?.address}},{{prescription?.doctor?.address?.area}}, {{prescription?.doctor?.address?.city}}
+          </ion-label>
+        </ion-col>
+
+      </ion-row>
+      <div *ngIf="business | async;let business" no-padding no-margin>
+        <ion-row>
+          <ion-col>
+            <ion-label text-capitalize class="label-b">
+              {{business.tradingName}}
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label class="x-small dark" float-right>Phone:{{prescription?.doctor?.phone}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <div>
+      <ion-row margin-top>
+        <ion-col>
+          <ion-label class="label-c" no-margin>Patient Name:</ion-label>
+        </ion-col>
+        <ion-col col-5>
+          <ion-label text-capitalize class="label-d">
+            {{prescription.member.firstName }}{{prescription.member?.lastName}}
+          </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label no-padding no-margin class="label-c">Age:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label class="label-e">{{prescription?.member?.age }} years</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-top:5px">
+        <ion-col col-3>
+          <ion-label class="label-c" no-margin>Address:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label text-capitalize class="label-a">
+            Address not comming
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <ion-row>
+    <ion-col margin-left margin-top>
+      <img src="assets/imgs/rx.png" style="width:35px;height:35px">
+    </ion-col>
+    <ion-col col-2 no-margin>
+      <ion-label no-padding no-margin class="label-c">Date:</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label class="label-g" *ngIf="prescription|async;let prescription">{{prescription.createdAt | date}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+
+
+  <div class="div-b" margin-left margin-right margin-top>
+    <ion-row class="border-r">
+      <ion-col col-4 class="border-1">Drug</ion-col>
+      <ion-col class="border-2">Dose</ion-col>
+      <ion-col class="border-2">Duration</ion-col>
+      <ion-col class="border-3">Take</ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf="prescription | async as prescription;">
+    <div class="div-a" *ngFor="let prescription of prescription?.items" margin-left margin-right>
+      <ion-row class="border-rr" padding-top padding-bottom>
+        <ion-col col-4 class="border-4" text-capitalize>{{prescription.medicine}}-{{prescription.composition}}</ion-col>
+
+        <ion-col class="border-5">
+          <span *ngIf="prescription.morningDose">1-</span>
+          <span *ngIf="prescription.morningDose != true">0-</span>
+          <span *ngIf="prescription.afternoonDose">1-</span>
+          <span *ngIf="prescription.afternoonDose != true">0-</span>
+          <span *ngIf="prescription.eveningDose">1</span>
+          <span *ngIf="prescription.eveningDose != true">0</span>
+        </ion-col>
+        <ion-col class="border-1">{{prescription.noOfDays}}days</ion-col>
+        <ion-col class="border-3" col-auto>{{prescription.beforeAfter}}</ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <ion-row margin>
+    <ion-col col-3>
+      <ion-label class="small light">
+        <b>Notes:</b>
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label *ngIf="appointment|async;let appointment" class="col-x" text-capitalize>{{appointment.notes}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ng-template #loadingOrError>
+    <page-loading [center]='center'></page-loading>
+  </ng-template>
+
+</ion-content>
+
+<ion-footer no-border>
+  <button ion-button class="button-footer" (click)="editItem()" *ngIf="history != 'history'">Edit</button>
+</ion-footer>

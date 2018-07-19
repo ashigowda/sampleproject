@@ -1,0 +1,21 @@
+page-filter-model {
+  .model {
+    height: 50%;
+    width: 70%;
+    margin-left: 30%;
+    margin-top: 40%;
+    background: rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+  .background {
+    background: lightgray;
+    color: white !important;
+  }
+  ion-backdrop {
+   // visibility: visible !important;
+    opacity:0.1;
+  }
+  .icon-size {
+    font-size: 15px;
+  }
+}

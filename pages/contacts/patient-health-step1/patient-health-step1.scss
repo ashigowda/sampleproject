@@ -1,0 +1,36 @@
+page-patient-health-step1 {
+  .label {
+    margin: 0px !important;
+  }
+  .label-a {
+    text-align: center;
+  }
+  .col {
+    padding: 3px;
+  }
+  .primary {
+    color: map-get($colors, primary)
+  }
+  .item-md {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid map-get($colors, light);
+  }
+  .item-ios {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid map-get($colors, light);
+  }
+  .item-wp {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid map-get($colors, light);
+  }
+}
+
+ion-app.md [padding-bottom] {
+  padding-bottom: 0px !important;
+}

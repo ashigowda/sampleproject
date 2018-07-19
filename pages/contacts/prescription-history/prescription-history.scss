@@ -1,0 +1,24 @@
+page-prescription-history {
+
+  .label {
+    font-weight: normal;
+    margin: 0px !important;
+  }
+  .item-md {
+    border-bottom: 1px solid map-get($colors, dark);
+  }
+  .color-c {
+    color: map-get($colors, white-a);
+  }
+  .border-a {
+    border: 1px solid map-get($colors, white-a) !important;
+    width: 60px;
+  }
+  .history{
+    font-size:13px;color:gray;
+  }
+}
+
+ion-app.md [padding-right] {
+  padding-right: 8px !important;
+}

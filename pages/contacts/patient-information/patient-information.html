@@ -1,0 +1,35 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="patient | async; let patient; else loadingOrError">
+    <ion-row ion-item text-center class="item-trns">
+      <ion-avatar (click)="changePhotoModal()">
+        <img src="assets/imgs/blank-avatar.jpg">
+      </ion-avatar>
+      <h2 text-capitalize class="primary">{{patient?.member?.firstName }} {{patient?.member?.lastName}}</h2>
+      <p>({{patient?.member?.age}} Years)</p>
+    </ion-row>
+
+    <ion-row>
+      <ion-card *ngFor='let item of navList' (click)="gotoPage(item.page,patient._id)">
+        <ion-item no-lines detail-push>
+          <ion-icon item-left name="{{item.icon}}" class="icon-small2"></ion-icon>
+          <ion-label no-margin>{{item.title}}</ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-row>
+
+    <call-contact [phone]="patient?.member?.phone"></call-contact>
+
+    <button ion-button (click)="bookAppontment(patient._id)" class="button-full">Book Appointment</button>
+  </div>
+
+  <ng-template #loadingOrError>
+   
+    <page-loading [center]='center'></page-loading>
+  </ng-template>
+
+</ion-content>

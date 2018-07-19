@@ -1,0 +1,46 @@
+<div *ngIf="profile|async;let profile;else loadingOrError">
+  <ion-row ion-item text-center class="item-trns">
+    <ion-avatar (click)="changePhotoModal()">
+      <img src="{{imgPreview}}">
+    </ion-avatar>
+    <h2 text-capitalize class="primary">{{profile?.firstName}} {{profile?.lastName}}</h2>
+    <p>{{profile?.dateOfBirth | date}}</p>
+  </ion-row>
+
+  <ion-row no-margin no-padding>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin no-padding>
+      <ion-icon name="call" no-margin no-padding class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col no-padding>
+      <ion-label no-margin margin-left class="x-small">{{profile?.phone}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-margin no-padding>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin no-padding>
+      <ion-icon name="mail" no-margin no-padding class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col no-padding>
+      <ion-label no-margin margin-left no-margin no-padding class="x-small">{{profile?.email}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-margin no-padding>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin no-padding>
+      <ion-icon name="locate" no-margin no-padding class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col no-padding>
+      <ion-label no-margin margin-left class="x-small" text-wrap>{{profile?.address?.addressName}}, {{profile?.address?.address}}, {{profile?.address?.area}}, {{profile?.address?.city}},
+        {{profile?.address?.state}}, {{profile?.address?.country}}, {{profile?.address?.pincode}}
+      </ion-label>
+    </ion-col>
+  </ion-row>
+</div>
+
+<ng-template #loadingOrError>
+
+  <page-loading [center]="center"></page-loading>
+</ng-template>

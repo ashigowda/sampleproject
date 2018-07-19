@@ -1,0 +1,25 @@
+page-clinic-settings {
+  .div-circle {
+    width: 30%;
+    height: 25%;
+    border-radius: 50%;
+    margin-left: 35%;
+    margin-top: 5%;
+    background-color: white;
+  }
+  .label-a {
+    color: map-get($colors, primary);
+    font-weight: bold;
+  }
+  .icon {
+    font-size: 30px;
+  }
+  .button {
+    width: calc(100% - 20px);
+    margin: 10px;
+  }
+  .label-a {
+    color: map-get($colors, primary);
+    font-weight: normal;
+  }
+}

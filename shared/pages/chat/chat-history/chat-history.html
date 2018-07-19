@@ -1,0 +1,28 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <ion-item *ngFor="let data of data" detail-push (click)='gotochatStartpage(data)' no-padding no-margin>
+        <ion-row class="row1" no-padding no-margin>
+            <ion-col col-3 no-padding no-margin>
+                <div class="div1">{{data.name}}</div>
+            </ion-col>
+            <ion-col col-7 no-padding no-margin>
+                <ion-row class="large">{{data.order}}</ion-row>
+                <ion-row>
+                    <ion-col class="x-small">{{data.date}}</ion-col>
+                    <ion-col class="xx-small">{{data.time}}</ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col *ngIf="data.status == 'Open'" class="color-3 x-small">{{data.status}}</ion-col>
+            <ion-col *ngIf="data.status == 'Closed'" class="color-4 x-small">{{data.status}}</ion-col>
+        </ion-row>
+    </ion-item>
+
+    <div *ngIf="data[0].status == 'Closed'">
+        <div class="div2" (click)="createchat()">
+            <ion-icon name="md-add" class="icon2"></ion-icon>
+        </div>
+    </div>
+</ion-content>

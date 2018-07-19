@@ -1,0 +1,21 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+<ion-content>
+    <p class="notes">
+        {{subTitle}}
+    </p>
+    <ion-card class="notes">
+        <p class="large wrap">
+            {{message}}
+        </p>
+    </ion-card>
+    <ion-card *ngIf="response" class="notes">
+        <ion-label class="medium wrap">
+            {{response}}
+        </ion-label>
+    </ion-card>
+</ion-content>
+<ion-footer no-border no-padding no-margin>
+    <button ion-button class="button-footer" (click)="next()">Login</button>
+</ion-footer>

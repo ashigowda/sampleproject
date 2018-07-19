@@ -1,0 +1,58 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-list radio-group [(ngModel)]="deployment">
+    <ion-list-header>
+      Version 5
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Staging</ion-label>
+      <ion-radio value="ImnQ5GcMwaxGPM-jjpPfFC4_9Ekj8aef4352-b749-4f22-ae1b-928deba3dd40"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Production</ion-label>
+      <ion-radio value="R_zgn-b7a9BWSKFVunp69Ma3QaLp8aef4352-b749-4f22-ae1b-928deba3dd40"></ion-radio>
+    </ion-item>
+
+    <ion-list-header>
+      Installed Package
+    </ion-list-header>
+    <ion-item>
+      App Version: {{currentPackage?.appVersion}}
+    </ion-item>
+    <ion-item>
+      Description: {{currentPackage?.description}}
+    </ion-item>
+    <ion-item>
+      Label: {{currentPackage?.label}}
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+    <ion-col width-20>Status:</ion-col>
+    <ion-col width-80>{{status}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50>
+      <button (click)="checkForUpdate(deployment)" [disabled]="isProcessing">
+        Check For Update
+      </button>
+    </ion-col>
+    <ion-col width-50>
+      <button (click)="sync(deployment)" [disabled]="!isUpdateAvailable" secondary>
+        Sync
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col width-25>Progress:</ion-col>
+    <ion-col width-75>
+      {{downloadProgress?.receivedBytes}} / {{downloadProgress?.totalBytes}}
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+

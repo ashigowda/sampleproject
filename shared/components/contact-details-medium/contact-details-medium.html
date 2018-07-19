@@ -1,0 +1,33 @@
+<ion-card *ngIf="appointment|async;let appointment;else loadingOrError">
+  <ion-row>
+    <ion-col col-8 no-margin padding-left class="medium primary" text-capitalize>
+      <b>{{appointment?.member?.firstName}} {{appointment?.member?.lastName}}</b>
+      <i no-padding no-margin class="small x-light">({{appointment?.member?.age}}age)</i>
+    </ion-col>
+    <ion-col padding-right no-margin class="medium light" text-capitalize>
+      <div float-right>Dr.{{appointment?.doctor?.firstName}} </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-8 padding-left no-margin class="small x-light">{{appointment?.member?.phone}}</ion-col>
+    <ion-col padding-right no-margin class="small dark">
+      <div float-right>{{appointment?.symtoms}}</div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row padding-bottom>
+    <ion-col col-8 padding-left no-margin class="x-small light">{{appointment?.appointmentDate |date}},{{appointment?.appointmentTime}}</ion-col>
+    <ion-col padding-right no-margin class="x-small x-light">
+      <div class="status border" float-right>{{appointment?.status}}</div>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+
+  <!-- <ng-template #loadingOrError>
+      <ion-card>
+    <page-loading></page-loading>
+  </ion-card>
+  </ng-template> -->
+

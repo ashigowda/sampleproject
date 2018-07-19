@@ -1,0 +1,95 @@
+page-prescriptionItem-edit {
+    .item {
+      background: none !important;
+    }
+    .div1 {
+      margin-top: 20%;
+    }
+    .col {
+      padding: 0px;
+    }
+    .label {
+      margin-top: 0px !important;
+    }
+    .card-md {
+      margin: 10px;
+      border-radius: 2px;
+      width: calc(100% - 20px);
+      font-size: 1.5rem;
+      padding: 8px;
+    }
+    .list {
+      margin: 10px;
+      width: calc(100% - 20px);
+    }
+    .card-ios {
+      margin: 10px;
+      border-radius: 2px;
+      width: calc(100% - 20px);
+      font-size: 1.5rem;
+      padding: 8px;
+    }
+    .div2 {
+      border-radius: 100px;
+      border: 1px solid map-get($colors, primary);
+      text-align: center;
+      margin: 3px;
+      padding: 3px
+    }
+    .label-a {
+      border-bottom: 1px solid gray;
+      color: #666666;
+      font-size: 14px;
+      margin-left: -20px;
+    }
+    .label-b {
+      color: maroon;
+      font-size: 15px;
+    }
+    .label-c {
+      padding-left: 7px;
+      color: black;
+      font-size: 14px
+    }
+    .label-d {
+      border-bottom: 1px solid gray;
+      color: #666666;
+      font-size: 14px;
+    }
+    .label-e {
+      border-bottom: 1px solid gray;
+      margin-left: -15px;
+      color: #666666;
+      font-size: 14px;
+    }
+    .label-g {
+      border-bottom: 1px solid gray;
+      margin-left: -15px;
+      color: #666666;
+      font-size: 14px;
+    }
+    .div-a {
+      background: white;
+      color: black;
+    }
+    
+    .div-b {
+      background: #999999;
+      ;
+      color: white;
+      font-weight: bold;
+    }
+    .div-c {
+      border-bottom: 3px solid #1f95d6;
+    }
+    .col-x {
+      margin-left: -20px;
+      font-size: 14px;
+    }
+    .item-md[detail-push] .item-inner,
+    button.item-md:not([detail-none]) .item-inner,
+    a.item-md:not([detail-none]) .item-inner {
+      background-position: right 2px center !important;
+    }
+  }
+  

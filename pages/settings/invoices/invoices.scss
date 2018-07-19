@@ -1,0 +1,53 @@
+page-invoices {
+  .label-a {
+    color: map-get($colors, primary);
+    ;
+    font-size: 16px;
+  }
+  .label-b {
+    font-size: 13px;
+    color: darkgreen;
+  }
+  .col {
+    padding: 0px !important;
+  }
+  .color-c {
+    color: map-get($colors, white-a);
+  }
+  .item-md {
+    border-bottom: 1px solid map-get($colors, dark);
+  }
+  .label {
+    font-weight: normal;
+    margin: 0px !important;
+  }
+  .border {
+    font-size: 12px;
+    color: white;
+    background-color: map-get($colors, primary);
+    text-align: center !important;
+    border-radius: 5px;
+  }
+  .color{
+    color:rgb(194, 131, 6);
+  }
+  .devider {
+    text-align: center;
+    background: map-get($colors, primary);
+    font-size: 18px;
+    font-weight: bold;
+    color: map-get($colors, white-a) !important;
+  }
+}
+
+ion-app.md [padding-right] {
+  padding-right: 6px !important;
+}
+
+ion-app.md [padding-top] {
+  padding-top: 6px !important;
+}
+
+ion-app.md [padding-bottom] {
+  padding-bottom: 6px !important;
+}

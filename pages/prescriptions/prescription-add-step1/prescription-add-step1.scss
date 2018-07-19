@@ -1,0 +1,42 @@
+page-prescription-add-step1 {
+  .item {
+    background: none !important;
+  }
+  .card-md {
+    margin: 10px;
+    border-radius: 2px;
+    width: calc(100% - 20px);
+    font-size: 1.5rem;
+  }
+  .card-ios {
+    margin: 10px;
+    border-radius: 2px;
+    width: calc(100% - 20px);
+    font-size: 1.5rem;
+  }
+  .scroll-content {
+    overflow: auto;
+  }
+  .div2 {
+    border-radius: 100px;
+    border: 1px solid map-get($colors, primary);
+    text-align: center;
+    margin: 3px;
+    padding: 3px;
+  }
+  .button-add1 {
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    background: map-get($colors, primary);
+    float: right;
+    right: 20px !important;
+    position: fixed;
+  }
+  .col{
+    padding-bottom:3px !important;
+}
+.label-md {
+  margin: 13px 8px 5px 10px !important;
+}
+}

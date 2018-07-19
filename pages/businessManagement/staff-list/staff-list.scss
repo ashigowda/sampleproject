@@ -1,0 +1,24 @@
+page-staff-list {
+  .item-md.item-block .item-inner {
+    padding-right: 16px;
+  }
+  .div2 {
+    margin-top: 10%;
+    margin-left: 76%;
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    border-radius: 100%;
+    background: $app-background;
+  }
+  .icon2 {
+    color: map-get($colors, white-a);
+    padding-left: 17px;
+    padding-top: 10px;
+    font-size: 35px;
+  }
+  .border-a {
+    border: 1px solid map-get($colors, white-a) !important;
+    width: 60px;
+  }
+}

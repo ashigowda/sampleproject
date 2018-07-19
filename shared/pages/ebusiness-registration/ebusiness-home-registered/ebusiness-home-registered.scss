@@ -1,0 +1,18 @@
+page-ebusiness-home-registered {
+  .card {
+    background-color: map-get($colors, primary);
+    border-radius: 5px;
+  }
+  .icon {
+    color: map-get($colors, white-a) !important;
+    padding: 0px !important;
+    margin-top: 16px !important;
+  }
+  .item {
+    background: none !important;
+  }
+  .label {
+    color: map-get($colors, white-a) !important;
+    margin: 0px !important;
+  }
+}

@@ -1,0 +1,55 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <form>
+        <ion-item no-lines no-padding class="devider" no-padding no-margin>
+            <ion-label class="label-small" no-margin no-padding class="textCenter">
+                <u>Step 1 of 3</u>
+            </ion-label>
+        </ion-item>
+        <ion-card>
+            <ion-label margin-bottom class="medium">
+                <b>
+                    <u>Enter 12-digit Aadhar Number:</u>
+                </b>
+            </ion-label>
+            <ion-row padding>
+                <ion-col col-4>
+                    <ion-input [type]="number" maxlength="4" value="{{tPin | slice:0:4}}" readonly no-border></ion-input>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-input [type]="number" maxlength="4" value="{{tPin | slice:4:8}}" readonly></ion-input>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-input [type]="number" maxlength="4" value="{{tPin | slice:8:12}}" readonly></ion-input>
+                </ion-col>
+            </ion-row>
+
+            <ion-grid>
+                <ion-row *ngFor="let row of matrix">
+                    <ion-col col-4 *ngFor="let col of row">
+                        <button id= {{col}} (click)="clicked($event)" class="btn"> {{col}} </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4>
+                        <button id="back" (click)="clicked($event)" class="btn">
+                            <ion-icon id="iback" name="backspace" class="icon-white1"></ion-icon>
+                        </button>
+                    </ion-col>
+                    <ion-col col-4>
+                        <button id="0" (click)="clicked($event)" class="btn">0</button>
+                    </ion-col>
+                    <ion-col col-4>
+                        <button ion-button class="btn" (click)="confirmPin()">
+                        <ion-icon name="checkmark" class="icon-white1"></ion-icon>
+                    </button>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+        </ion-card>
+    </form>
+</ion-content>

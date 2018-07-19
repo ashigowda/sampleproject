@@ -1,0 +1,74 @@
+<div *ngIf="business|async; let business;else loadingOrError">
+
+  <ion-row no-margin>
+    <ion-col col-1></ion-col>
+    <ion-col col-1 no-margin no-margin>
+      <ion-icon name="podium" no-margin class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col no-margin>
+      <ion-label margin-left no-margin class="label-a large" text-capitalize>
+        {{business.tradingName}}
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-margin>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin>
+      <ion-icon name="call" no-margin class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-label no-margin margin-left class="x-small">{{business.phone}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-margin>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin>
+      <ion-icon name="mail" no-margin class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-label no-margin margin-left no-margin class="x-small">{{business.email}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+
+
+  <ion-row no-margin>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin>
+      <ion-icon name="md-bookmark" no-margin class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-label no-margin margin-left class="x-small">{{business.licenseNo}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row no-margin>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin>
+      <ion-icon name="book" no-margin class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-label no-margin margin-left class="x-small">{{business.description}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-margin>
+    <ion-col col-1 no-paddding no-margin></ion-col>
+    <ion-col col-1 no-margin>
+      <ion-icon name="locate" no-margin class="icon-small2"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-label no-margin margin-left class="x-small" text-wrap>{{business.address?.addressName}}, {{business.address?.address}}, {{business.address?.area}}, {{business.address?.city}},
+        {{business.address?.state}}, {{business.address?.country}}, {{business.address?.pincode}}
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+</div>
+
+<ng-template #loadingOrError>
+  <page-loading [center] = "center"></page-loading>
+</ng-template>

@@ -1,0 +1,150 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  status:    #2759b1,
+  secondary: #58963a,
+  danger:     #ff4400,
+  light:      #f4f4f4,
+  vibrant: #ffffff,
+  dark :#666666,
+  dark-a:#999999,
+   dark-x:  #e8e8e8,
+  change : #ff6600,
+  cool: #006600,
+  primary: #1f95d6,
+  color1: #3ed175,
+  blue-a: #4f87ee,
+  white-a: #ffffff,
+  white-b: #f5f5f5,
+  black-a: #000000
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+.icon{
+  color: map-get($colors,primary);
+   font-size: 40px;
+   margin: 0px;
+    padding: 0px;
+}
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+$item-detail-push-show:true;
+$item-md-detail-push-show: true;
+$item-ios-detail-push-show: true;
+$toolbar-ios-height:56px;
+$toolbar-md-height:56px;
+$toolbar-md-title-text-color: #ffffff;
+$toolbar-ios-title-text-color: #ffffff;
+$toolbar-wp-title-text-color: #ffffff;
+
+$toolbar-md-title-font-weight:bold;
+$toolbar-ios-title-text-align:center;
+$toolbar-md-title-text-align:center;
+
+$toolbar-ios-title-text-align: center;
+$toolbar-md-title-text-align: center;
+$toolbar-ios-title-font-size: 24px;
+$toolbar-md-title-font-size: 24px;
+
+$text-input-md-highlight-color-invalid: transparent;
+$text-input-md-highlight-color-valid: transparent;
+$text-input-md-show-invalid-highlight: transparent;
+$text-input-md-highlight-color: transparent;
+$text-input-md-show-valid-highlight: transparent;
+
+$text-input-ios-highlight-color-invalid: transparent;
+$text-input-ios-highlight-color-valid: transparent;
+$text-input-ios-show-invalid-highlight: transparent;
+$text-input-ios-highlight-color: transparent;
+$text-input-ios-show-valid-highlight: transparent;
+$searchbar-ios-input-clear-icon-color:    #ff4400;
+$searchbar-ios-input-search-icon-color:   blue;
+$modal-inset-box-shadow-color: rgba(0, 0, 0, .4);
+$spinner-ios-ios-color: map-get($colors, primary);
+$spinner-md-ios-color: map-get($colors, primary);
+$spinner-ios-bubbles-color: map-get($colors, primary);
+$spinner-md-bubbles-color: map-get($colors, primary);
+$spinner-ios-dots-color: map-get($colors, primary);
+$spinner-md-dots-color: map-get($colors, primary);
+$app-background: linear-gradient(to bottom, color($colors, primary) 20%, color($colors, status) 100%);
+
+.vertical-align-content>* {
+  display: flex !important;
+  align-content: center !important;
+  align-items: center !important;
+  height: 80%;
+}

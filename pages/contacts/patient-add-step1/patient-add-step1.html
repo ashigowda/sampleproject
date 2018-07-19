@@ -1,0 +1,49 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-label margin-top class="textCenter">
+    <b class="textCenter">
+      <u>Step 1 of 3 </u>
+    </b>
+  </ion-label>
+  <ion-card>
+    
+    <ion-label>Doctor:</ion-label>
+    <ion-input type="text" placeholder="Doctor Name" class="input-large" [(ngModel)]="clinicPatient.doctor" (keyup.enter)="a.setFocus()"></ion-input>
+
+    <ion-label>Phone No:</ion-label>
+    <ion-input type="number" placeholder="Phone Number" class="input-large" [(ngModel)]="clinicPatient.phone" #a (keyup.enter)="b.setFocus()"></ion-input>
+
+    <ion-label>Family Name:</ion-label>
+    <ion-input type="text" placeholder="family Name" class="input-large" margin-bottom [(ngModel)]="clinicPatient.familyName" #b (keyup.enter)="c.setFocus()"></ion-input>
+
+    <ion-label>First Name:</ion-label>
+    <ion-input type="text" placeholder="first name" class="input-large" margin-bottom [(ngModel)]="clinicPatient.firstName" #c (keyup.enter)="d.setFocus()"></ion-input>
+
+    <ion-label>Last Name:</ion-label>
+    <ion-input type="text" placeholder="last name" class="input-large" margin-bottom [(ngModel)]="clinicPatient.lastName" #d (keyup.enter)="e.setFocus()"></ion-input>
+
+    <ion-label>Age:</ion-label>
+    <ion-input type="number" placeholder="age" class="input-large" margin-bottom [(ngModel)]="clinicPatient.age" #e (keyup.enter)="f.setFocus()" ></ion-input>
+
+    <ion-label>Email:</ion-label>
+    <ion-input type="email" placeholder="email" class="input-large" margin-bottom [(ngModel)]="clinicPatient.email" #f ></ion-input>
+
+    <ion-label>Gender:</ion-label>
+    <ion-item no-padding margin-bottom>
+      <ion-select [(ngModel)]="clinicPatient.gender" interface="action-sheet">
+        <ion-option value="female">Female</ion-option>
+        <ion-option value="male">Male</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-card>
+</ion-content>
+
+<ion-footer no-padding no-border>
+  <button ion-button block (click)="save()" class="button-footer" type="submit" no-margin no-padding>
+    <b>Create Patient</b>
+  </button>
+</ion-footer>

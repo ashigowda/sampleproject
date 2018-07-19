@@ -1,0 +1,77 @@
+<ion-row *ngIf="data1 == 'create' || data1 == 'pre'">
+    <ion-col no-padding> <button ion-button class="button-full" (click)="changeContact()">Select Contact</button></ion-col>
+</ion-row>
+
+<ion-row *ngIf=" data1 != 'create' &&  data1 != 'pre' && data != 'edit'">
+    <ion-col no-padding> <button ion-button class="button-full" (click)="changeContact()">Change Contact</button></ion-col>
+</ion-row>
+<ion-row *ngIf="data == 'edit'">
+    <ion-col no-padding> <button ion-button class="button-full" (click)="changeContact1()">Change Contact</button></ion-col>
+</ion-row>
+<div *ngIf="data == 'write' || data == 'book' || data == 'edit' && data != 'create'">
+    <div *ngFor=" let con of contact">
+        <ion-card>
+            <ion-row no-padding no-margin>
+                <ion-col col-3 no-padding no-margin>
+                    <div class="div-circle" margin-left>
+                        <ion-icon name="person" class="icon1"></ion-icon>
+                    </div>
+                </ion-col>
+                <ion-col col-7 no-padding no-margin>
+                    <ion-row>
+                        <label class="y-small">{{con.contactName}}</label></ion-row>
+                    <ion-row> <label class="z-small">{{con.Number}}<i>({{con.Status}})</i></label>
+                    </ion-row>
+                </ion-col>
+                <ion-col col-2 no-padding no-margin>
+                    <ion-badge>
+                        <ion-icon name="people" class="patients" class="icon1"></ion-icon> {{con.patients}}</ion-badge>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </div>
+    <div *ngIf="data == 'write' || data == 'book' || data == 'edit' && data != 'create'">
+        <div *ngFor=" let con of contact">
+            <ion-card>
+                <ion-row no-padding no-margin>
+                    <ion-col col-3 no-padding no-margin>
+                        <div class="div-circle" margin-left>
+                            <ion-icon name="person" class="icon1"></ion-icon>
+                        </div>
+                    </ion-col>
+                    <ion-col col-7 no-padding no-margin>
+                        <ion-row>
+                            <label class="y-small">{{con.contactName}}</label></ion-row>
+                        <ion-row> <label class="z-small">{{con.Number}}<i>({{con.Status}})</i></label>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col col-2 no-padding no-margin>
+                        <ion-badge>
+                            <ion-icon name="people" class="patients" class="icon1"></ion-icon> {{con.patients}}</ion-badge>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </div>
+        
+    <ion-list class="list" no-margin no-padding *ngFor=" let mem of members" [(ngModel)]="patientId" radio-group>
+        <ion-card class="item item-radio">
+            <ion-row no-padding no-margin>
+                <ion-col col-3 no-padding no-margin>
+                    <div class="div-circle" margin-left>
+                        <ion-icon name="person" class="icon1"></ion-icon>
+                    </div>
+                </ion-col>
+                <ion-col col-5 no-padding no-margin>
+                    <ion-row>
+                        <label class="y-small">{{mem.patientName}} ({{mem.age}} years)</label></ion-row>
+                    <ion-row> <label class="x-small"><i> Female</i></label>
+                    </ion-row>
+                </ion-col>
+                <ion-col col-3> <label class="z-small">{{mem.role}}</label></ion-col>
+                <ion-col col-1>
+                    <ion-radio value={{mem.patientId}}></ion-radio>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-list>
+</div>

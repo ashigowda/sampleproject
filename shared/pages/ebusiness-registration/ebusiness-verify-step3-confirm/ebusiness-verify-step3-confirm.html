@@ -1,0 +1,21 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-label style="text-align:center;color:#4a924a;font-size:16px;margin:0px!important" padding-top>
+    <u>Step 3 of 3</u>
+  </ion-label>
+  <ion-row no-padding no-margin>
+    <ion-col col-4 no-padding no-margin></ion-col>
+    <ion-col col-4 no-padding no-margin>
+      <ion-icon name="md-checkmark-circle-outline" style="font-size:200px" no-padding no-margin></ion-icon>
+    </ion-col>
+    <ion-col col-4></ion-col>
+  </ion-row>
+  <ion-label text-wrap>Your Business Registration Process is completed.Please upload the required documents to activate your business.</ion-label>
+</ion-content>
+
+<ion-footer no-border>
+  <button ion-button (click)="gotoVerifyBusinessPage()" class="button-footer">Continue</button>
+</ion-footer>

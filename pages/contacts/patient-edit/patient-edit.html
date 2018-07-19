@@ -1,0 +1,51 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="patient|async;let patient">
+    <ion-card>
+      <ion-label margin-left>Phone No:</ion-label>
+      <ion-input type="number" placeholder="Phone Number" class="input-large" [(ngModel)]="patient.member.phone" (keyup.enter)="a.setFocus()"></ion-input>
+
+      <ion-label margin-left>Family Name:</ion-label>
+      <ion-input type="text" placeholder="family Name" class="input-large" margin-bottom [(ngModel)]="patient.member.familyName"
+        #a (keyup.enter)="b.setFocus()"></ion-input>
+
+      <ion-label margin-left>First Name:</ion-label>
+      <ion-input type="text" placeholder="first name" class="input-large" margin-bottom [(ngModel)]="patient.member.firstName"
+        #b (keyup.enter)="c.setFocus()"></ion-input>
+
+      <ion-label margin-left>Last Name:</ion-label>
+      <ion-input type="text" placeholder="last name" class="input-large" margin-bottom [(ngModel)]="patient.member.lastName" #c
+        (keyup.enter)="d.setFocus()"></ion-input>
+
+      <ion-label margin-left>Age:</ion-label>
+      <ion-input type="number" placeholder="age" class="input-large" margin-bottom [(ngModel)]="patient.member.age" #d></ion-input>
+
+      <ion-label margin-left>Gender:</ion-label>
+      <ion-item no-lines no-padding margin-bottom>
+        <ion-select [(ngModel)]="patient.member.gender" interface="action-sheet">
+          <ion-option value="female">Female</ion-option>
+          <ion-option value="male">Male</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-label margin-left>Email:</ion-label>
+      <ion-input type="email" placeholder="email" class="input-large" margin-bottom [(ngModel)]="patient.member.email" (keyup.enter)="update()"></ion-input>
+
+    </ion-card>
+  </div>
+  
+</ion-content>
+
+<ion-footer no-border>
+  <ion-row>
+    <ion-col col-6>
+      <button ion-button class="button-footer" (click)="cancel()"> Cancel </button>
+    </ion-col>
+    <ion-col col-6>
+      <button ion-button class="button-footer" *ngIf="patient|async;let patient" (click)="update(patient?.member)"> Update </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,24 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content class="vertical-align-content">
+  <ion-grid>
+    <ion-row center>
+      <ion-col>
+        <ion-card>
+          <ion-label class="medium">Enter Phone Number:</ion-label>
+          <ion-input type="tel" placeholder="Phone" [(ngModel)]="input$.phone" margin-bottom maxlength = "10"></ion-input>
+        </ion-card>
+        <ion-label *ngIf= "number == true" class="error">* Please enter the Phone Number</ion-label>
+        <ion-card *ngIf="response">
+          <ion-label class="medium">{{response}}</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer no-border no-padding no-margin>
+  <button ion-button class="button-footer" (click)="next()">Register</button>
+</ion-footer>

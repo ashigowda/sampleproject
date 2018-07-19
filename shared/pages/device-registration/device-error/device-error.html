@@ -1,0 +1,23 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content class="vertical-align-content">
+  <ion-grid>
+    <ion-row center>
+      <ion-col>
+        <p class="notes">{{subTitle}}</p>
+        <ion-card class="notes">
+          <p class="large wrap">{{message}}</p>
+        </ion-card>
+        <ion-card *ngIf="response">
+          <ion-label class="response" text-wrap>{{response}}</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer no-border no-padding no-margin>
+  <button ion-button class="button-footer" (click)="retry()">Retry</button>
+</ion-footer>

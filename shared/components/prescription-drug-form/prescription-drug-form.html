@@ -1,0 +1,71 @@
+<ion-searchbar placeholder="Search Drug" (ionInput)="getDrug($event)" [(ngModel)]='prescriptionItem.medicine' (ionClear)="onClear($event)"
+  no-padding margin-top>
+</ion-searchbar>
+
+<ion-label *ngIf="frequent && add != 'add'">
+  <b>Frequently Used Drugs</b>
+</ion-label>
+
+<div *ngIf="frequent && add != 'add'">
+  <ion-row *ngFor="let drug of list" (click)="selectDrug(prescriptionItem.medicine)">
+    <ion-col col-3>
+      <div class="div1">{{drug}}</div>
+    </ion-col>
+    <ion-col col-3>
+      <div class="div1">{{drug}}</div>
+    </ion-col>
+    <ion-col col-3>
+      <div class="div1">{{drug}}</div>
+    </ion-col>
+    <ion-col col-3>
+      <div class="div1">{{drug}}</div>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div no-padding no-margin>
+  <ion-label>{{prescriptionItem?.medicine}}</ion-label>
+
+  <ion-card padding>
+    Dolo 650 MG is the mild analgesic which is used to treat fever and fever relating pain, cold, toothache, joint pain, headache
+  </ion-card>
+
+  <ion-label>Medicine:</ion-label>
+  <ion-item no-lines no-margin no-padding>
+    <ion-input interface="action-sheet" type="text" [(ngModel)]='prescriptionItem.medicine' (keyup.enter)="a.setFocus()"></ion-input>
+  </ion-item>
+
+  <ion-label>Composition:</ion-label>
+  <ion-item no-lines no-margin no-padding>
+    <ion-input interface="action-sheet" type="text" [(ngModel)]='prescriptionItem.composition' #a (keyup.enter)="b.setFocus()"></ion-input>
+  </ion-item>
+
+
+  <ion-label>No. Of Days:</ion-label>
+  <ion-item no-lines no-margin no-padding>
+      <ion-input interface="action-sheet" type="text" [(ngModel)]='prescriptionItem.noOfDays' #b></ion-input>
+  </ion-item>
+
+  <ion-label>When To Take:</ion-label>
+  <ion-item no-lines no-margin no-padding>
+    <ion-select interface="action-sheet" [(ngModel)]='prescriptionItem.beforeAfter'>
+      <ion-option value="after food">After Food</ion-option>
+      <ion-option value="before food">Before Food</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-label>When to take drug:</ion-label>
+  <ion-row margin-left>
+    <ion-col>
+      <p>Morning </p>
+      <ion-toggle color="danger" [(ngModel)]='prescriptionItem.morningDose'></ion-toggle>
+    </ion-col>
+    <ion-col no-padding no-margin>
+      <p>Afternoon </p>
+      <ion-toggle color="danger" [(ngModel)]='prescriptionItem.afternoonDose'></ion-toggle>
+    </ion-col>
+    <ion-col no-padding no-margin>
+      <p>Evening </p>
+      <ion-toggle color="danger" [(ngModel)]='prescriptionItem.eveningDose'></ion-toggle>
+    </ion-col>
+  </ion-row>
+</div>

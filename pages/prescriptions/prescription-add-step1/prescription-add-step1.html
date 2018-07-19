@@ -1,0 +1,41 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Refreshing Prescription add step1">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-label margin-top class="textCenter">
+    <u>Step 3 of 4 </u>
+  </ion-label>
+
+  <ion-label no-padding>
+    <b>Patient Details</b>
+  </ion-label>
+
+  <div *ngIf="appointment|async;let profile;else loadingOrError">
+    <contact-details-medium [appointment]="appointment"> </contact-details-medium>
+    <patient-visit-details [appointment]="appointment"></patient-visit-details>
+    <ion-label>
+      <b>Prescription Details</b>
+    </ion-label>
+
+    <prescription-card [prescriptionItem]="prescriptionItems"></prescription-card>
+    <add-circle-button (click)="addMoreItem()" class="button-add1"></add-circle-button>
+  </div>
+  <ng-template #loadingOrError>
+    <ion-card>
+      <page-loading [center]="center"></page-loading>
+    </ion-card>
+  </ng-template>
+
+
+  <ion-footer no-border>
+    <button ion-button block (click)="confirm()" class="button-footer" no-margin no-padding>Next</button>
+  </ion-footer>
+
+</ion-content>

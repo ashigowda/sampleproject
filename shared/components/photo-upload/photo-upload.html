@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Change Picture
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        Close
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list align-items-center>
+    <ion-row ion-item text-center class="item-trns">
+      <ion-avatar (click)="changePicture()">
+        <img src="{{imgPreview}}">
+      </ion-avatar>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label no-margin margin-left class="x-small">Source: {{caller}} - {{referenceId}}</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label no-margin margin-left class="x-small">Type: {{type}} - {{imageId}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-row>
+        <ion-col>
+          <button ion-button class="button-footer" (click)="saveChange()"> Update </button>
+        </ion-col>
+      </ion-row>  
+      <ion-row>
+          <ion-col>
+            <button ion-button class="button-footer" (click)="dismiss()"> Cancel </button>
+          </ion-col>
+        </ion-row>  
+  </ion-footer>

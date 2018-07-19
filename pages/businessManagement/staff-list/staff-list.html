@@ -1,0 +1,113 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Refreshing Staff List">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-segment [(ngModel)]="tabIndex">
+    <ion-segment-button value="0">
+      Active User
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      Archive
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="tabIndex">
+    <ion-list *ngSwitchCase="0" lines>
+      <div *ngIf="user|async as user;else loadingOrError">
+        <ion-item-sliding *ngFor="let user of user">
+          <ion-item lines (click)="view(user._id)" no-padding no-margin>
+            <ion-row no-padding>
+              <ion-col col-7 no-padding class="medium primary" text-capitalize>
+                <b>{{user.user.firstName}} {{user.user.lastName}}
+                  <i *ngIf="user.manager == true" class="xx-small light">(Manager)</i>
+                  <i *ngIf="user.sales == true" class="xx-small light">(Sales)</i>
+                  <i *ngIf="user.delivery == true" class="xx-small light">(delivery)</i>
+                </b>
+              </ion-col>
+
+              <ion-col col-5 no-padding >
+                <b float-right class="number" float-right>{{user.user.userId}}</b>
+              </ion-col>
+
+            </ion-row>
+            <ion-row padding-bottom>
+              <ion-col col-7 class="phoneIcon">
+                <ion-icon name="call" class="phone"></ion-icon> {{user.user.phone}}</ion-col>
+
+
+              <ion-col col-5 no-padding class="xx-small" float-right>
+                <div float-right>{{user.user.address.area}}</div>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+
+          <ion-item-options side="right">
+            <button class="sliding_btn" (click)="edit(user._id)" class="border-a" ion-button>
+              <ion-icon name="create" class="icon-small"></ion-icon>Edit</button>
+            <button class="sliding_btn" (click)="deleteUsers(user._id)" class="border-a" ion-button>
+              <ion-icon name="trash" class="icon-small"></ion-icon>Archive</button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <add-circle-button style="position:fixed" (click)="create()" class="button-add"></add-circle-button>
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="1">
+      <div *ngIf="user|async as user;else loadingOrError">
+        <ion-item lines *ngFor="let user of user" (click)="viewArchived(user._id)" no-padding no-margin>
+          <ion-row no-padding>
+            <ion-col col-7 no-padding class="medium primary" text-capitalize>
+              <b>{{user.user.firstName}} {{user.user.lastName}}
+                <i *ngIf="user.manager == true" class="xx-small light">(Manager)</i>
+                <i *ngIf="user.sales == true" class="xx-small light">(Sales)</i>
+                <i *ngIf="user.delivery == true" class="xx-small light">(delivery)</i>
+              </b>
+            </ion-col>
+
+            <ion-col col-5 no-padding >
+              <b float-right class="number" float-right>{{user.user.userId}}</b>
+            </ion-col>
+
+          </ion-row>
+          <ion-row padding-bottom>
+            <ion-col col-7 class="phoneIcon">
+              <ion-icon name="call" class="phone"></ion-icon> {{user.user.phone}}</ion-col>
+
+
+            <ion-col col-5 no-padding class="xx-small" float-right>
+              <div float-right>{{user.user.address.area}}</div>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+
+  <ng-template #loadingOrError>
+    <ion-item lines no-margin detail-push>
+      <ion-row padding-left>
+        <ion-col col-7 margin-right>
+          <div class="animated-background">
+            <div class="background-masker"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row padding-left>
+        <ion-col col-5 margin-right>
+          <div class="animated-background">
+            <div class="background-masker"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ng-template>
+</ion-content>

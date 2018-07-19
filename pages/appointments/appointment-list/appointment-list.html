@@ -1,0 +1,258 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+  <header-sub [profile]="profile" [business]="business"></header-sub>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Refreshing Appointment List">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-segment [(ngModel)]="appointment">
+    <ion-segment-button value="0">
+      Today's
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      Later
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      Closed
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div [ngSwitch]="appointment">
+    <div *ngSwitchCase="0">
+      <div *ngIf="appointmentList1|async as aList; else loadingOrError">
+          <div *ngIf = "aList == ''" class="center1">No items in the list</div>
+        <ion-list *ngFor="let appointment of aList" lines>
+              <ion-item-sliding>
+            <ion-item (click)="viewAppointment(appointment._id, appointment.patient)" lines padding-left padding-top no-margin>
+
+              <ion-row>
+                <ion-col class="primary medium" text-capitalize>
+                  {{appointment?.member?.firstName}} {{appointment?.member?.lastName}}
+                  <i class="age" no-padding no-margin>
+                    ({{appointment?.member?.age}} years)</i>
+                </ion-col>
+
+                <ion-col>
+                  <b float-right class="number" padding-right>{{appointment.appointmentId}}</b>
+                </ion-col>
+              </ion-row>
+
+              <ion-row no-margin>
+                <ion-col class="phoneIcon">
+                  <ion-icon name="call" class="phone"></ion-icon> {{appointment?.member?.phone}}</ion-col>
+
+                <ion-col text-capitalize>
+                  <p float-right padding-right class="large" id="doctor">
+                    <img src="../../../assets/imgs/images.jpg" class="doctorIcon" no-padding no-margin> Dr.{{appointment?.doctor?.firstName}} {{appointment?.doctor?.lastName}}</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row no-padding no-margin>
+                <ion-col>
+                  <div class="emailIcon">
+                    <ion-icon name="mail" class="email"></ion-icon> {{appointment?.member?.email}}
+                  </div>
+                </ion-col>
+
+                <ion-col>
+                  <p float-right padding-right class="symptoms">{{appointment?.symtoms}}</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="marginBottom"  no-margin>
+                <ion-col>
+                  <div class="timeIcon">
+                    <ion-icon name="timer" class="time"></ion-icon> {{appointment.appointmentDate | date}} {{appointment?.appointmentTime}}
+                    <i *ngIf="appointment?.status != 'closed'" class="gray">(due in:{{appointment?.dueTime}})</i>
+                  </div>
+                </ion-col>
+
+                <ion-col col-3 padding-right>
+                  <b class="status border" float-right padding-right>{{appointment?.status}}</b>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item-options *ngIf='appointment?.status == "new"'>
+              <button text-wrap ion-button (click)="editAppointment(appointment._id)" class="border-a">
+                <ion-icon name="create" class="icon-small white"></ion-icon> Edit</button>
+
+              <button text-wrap ion-button (click)="CancelAppointment(appointment._id)" class="border-a">
+                <ion-icon name="trash" class="icon-small white"></ion-icon> Cancel</button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+    </div>
+
+    <ng-template #loadingOrError>
+      <ion-list>
+        <ion-item lines margin-bottom *ngFor = "let i of [1,2]">
+          <ion-row padding-left>
+            <ion-col col-6 margin-right>
+              <div class="animated-background">
+                <div class="background-masker"></div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row padding-left padding-top>
+            <ion-col col-6 margin-right>
+              <div class="animated-background">
+                <div class="background-masker"></div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row padding-left padding-top>
+            <ion-col col-6 margin-right>
+              <div class="animated-background">
+                <div class="background-masker"></div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row padding-left padding-top>
+            <ion-col margin-right margin-bottom>
+              <div class="animated-background">
+                <div class="background-masker"></div>
+              </div>
+            </ion-col>
+
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </ng-template>
+
+    <div *ngSwitchCase="1">
+      <div *ngIf="appointmentList2|async as aList; else loadingOrError">
+        <div *ngIf = "aList == ''" class="center1">No items in the list</div>
+        <ion-list *ngFor='let appointment of aList' lines>
+          <ion-item-sliding>
+            <ion-item (click)="viewAppointment(appointment._id, appointment.patient._id)" lines padding-left padding-top no-margin>
+              <ion-row>
+                <ion-col class="primary medium" text-capitalize>
+                  {{appointment?.member?.firstName}} {{appointment?.member?.lastName}}
+                  <i class="age" no-padding no-margin>
+                    ({{appointment?.member?.age}} years)</i>
+                </ion-col>
+
+                <ion-col>
+                  <b float-right class="number" padding-right>{{appointment.appointmentId}}</b>
+                </ion-col>
+              </ion-row>
+
+              <ion-row no-margin>
+                <ion-col class="phoneIcon">
+                  <ion-icon name="call" class="phone"></ion-icon> {{appointment?.member?.phone}}</ion-col>
+
+                <ion-col text-capitalize>
+                  <p float-right padding-right class="large " id="doctor">
+                    <img src="../../../assets/imgs/images.jpg" class="doctorIcon" no-padding no-margin> Dr.{{appointment?.doctor?.firstName}} {{appointment?.doctor?.lastName}}</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row no-padding no-margin>
+                <ion-col>
+                  <div class="emailIcon">
+                    <ion-icon name="mail" class="email"></ion-icon> {{appointment?.member?.email}}
+                  </div>
+                </ion-col>
+
+                <ion-col>
+                  <p float-right padding-right class="symptoms">{{appointment?.symtoms}}</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="marginBottom"  no-margin>
+                <ion-col>
+                  <div class="timeIcon">
+                    <ion-icon name="timer" class="time"></ion-icon> {{appointment.appointmentDate | date}} {{appointment?.appointmentTime}}
+                    <i *ngIf="appointment?.status != 'closed'" class="darkgray">(due in:{{appointment?.dueTime}})</i>
+                  </div>
+                </ion-col>
+
+                <ion-col col-3 padding-right>
+                  <b class="status border" float-right padding-right>{{appointment?.status}}</b>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+
+            <ion-item-options *ngIf='appointment?.status == "new"'>
+              <button text-wrap ion-button (click)="editAppointment(appointment._id)" class="border-a">
+                <ion-icon name="create" class="icon-small white"></ion-icon> Edit</button>
+
+              <button text-wrap ion-button (click)="CancelAppointment(appointment._id)" class="border-a">
+                <ion-icon name="trash" class="icon-small white"></ion-icon> Cancel</button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="2">
+        <div *ngIf="appointmentList3|async as aList; else loadingOrError">
+            <div *ngIf = "aList == ''" class="center1">No items in the list</div>
+          <ion-list *ngFor='let appointment of aList' lines>
+            <ion-item (click)="viewAppointment(appointment._id, appointment.patient._id)"  lines
+              padding-left padding-top no-margin>
+              <ion-row>
+                <ion-col class="primary medium" text-capitalize>
+                  {{appointment?.member?.firstName}} {{appointment?.member?.lastName}}
+                  <i class="age" no-padding no-margin>
+                    ({{appointment?.member?.age}} years)</i>
+                </ion-col>
+  
+                <ion-col>
+                  <b float-right class="number" padding-right>{{appointment.appointmentId}}</b>
+                </ion-col>
+              </ion-row>
+  
+              <ion-row no-margin>
+                <ion-col class="phoneIcon">
+                  <ion-icon name="call" class="phone"></ion-icon> {{appointment?.member?.phone}}</ion-col>
+  
+                <ion-col text-capitalize>
+                  <p float-right padding-right class="large " id="doctor">
+                    <img src="../../../assets/imgs/images.jpg" class="doctorIcon" no-padding no-margin> Dr.{{appointment?.doctor?.firstName}} {{appointment?.doctor?.lastName}}</p>
+                </ion-col>
+              </ion-row>
+  
+              <ion-row no-padding no-margin>
+                <ion-col>
+                  <div class="emailIcon">
+                    <ion-icon name="mail" class="email"></ion-icon> {{appointment?.member?.email}}
+                  </div>
+                </ion-col>
+  
+                <ion-col>
+                  <p float-right padding-right class="symptoms">{{appointment?.symtoms}} </p>
+                </ion-col>
+              </ion-row>
+  
+              <ion-row class="marginBottom" no-margin>
+                <ion-col>
+                  <div class="timeIcon">
+                    <ion-icon name="timer" class="time"></ion-icon> {{appointment.appointmentDate | date}} {{appointment?.appointmentTime}}
+                  </div>
+                </ion-col>
+  
+                <ion-col col-3 padding-right>
+                  <b class="status border" float-right padding-right>{{appointment?.status}}</b>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+
+  </div>
+  <add-circle-button style="position:fixed" (click)="CreateAppointment()" class="button-add"></add-circle-button>
+</ion-content>

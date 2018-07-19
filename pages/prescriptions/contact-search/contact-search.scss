@@ -1,0 +1,33 @@
+page-contact-search {
+  .label {
+    margin: 13px 8px 5px 8px;
+  }
+  ion-item {
+    background-color: map-get($colors, vibrant) !important;
+  }
+  .list-md .item-block .item-inner {
+    border-bottom: 1px solid gray !important;
+  }
+  .list-ios>.item-wrapper:last-child .item-block {
+    border-bottom: 0px !important;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: 1px solid gray !important;
+  }
+  .item-md {
+    padding-left: 12px !important;
+  }
+  .item-ios {
+    padding-left: 12px !important;
+  }
+  // .col {
+  //   padding: 0px !important;
+  // }
+}
+ion-app.md [padding-top] {
+  padding-top: 4px !important;
+}
+
+ion-app.ios [padding-top] {
+  padding-top: 4px !important;
+}

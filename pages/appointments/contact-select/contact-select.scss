@@ -1,0 +1,72 @@
+page-contact-select {
+  ion-col {
+    font-size: 17px;
+    color: map-get($colors, dark);
+  }
+  .icon1 {
+    color: map-get($colors, primary);
+    font-size: 40px;
+    margin-left: 20%;
+  }
+  .button-full1 {
+    width: 90%;
+    border-radius: 50px;
+    height: 45px;
+    font-weight: bold;
+    background-color: map-get($colors, white-a);
+    border: 1px solid map-get($colors, primary) !important;
+    color: map-get($colors, primary);
+    font-size: 18px;
+    text-transform: none !important;
+  }
+  .card-md+ion-card {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .scroll-content {
+    overflow: auto !important;
+  }
+  .button-md {
+    margin: 10px;
+    width: calc(100% - 20px)
+  }
+  .button-ios {
+    margin: 10px;
+    width: calc(100% - 20px)
+  }
+  .button-wp {
+    margin: 10px;
+    width: calc(100% - 20px)
+  }
+ .icon-x {
+    font-size: 14px;
+    color: chocolate;
+  }
+  .icon-y {
+    color: chocolate;
+    font-size: 17px;
+  }
+  .col-a {
+    font-size: 14px;
+    color: darkgreen;
+  }
+  .col-b {
+    color: darkgreen;
+    font-size: 17px;
+  }
+  .col-c {
+    font-size: 12px;
+    color: gray;
+  }
+  .margin{
+    margin-top:-10px;margin-left:-4px
+  }
+}
+
+ion-app.md [padding-top] {
+  padding-top: 4px !important;
+}
+
+ion-app.ios [padding-top] {
+  padding-top: 4px !important;
+}

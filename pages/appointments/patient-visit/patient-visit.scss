@@ -1,0 +1,24 @@
+page-patient-visit {
+  .margin {
+    margin-top: 18%;
+  }
+  
+  .status {
+    background-color: map-get($colors, change);
+    color: map-get($colors, white-a);
+  }
+  .border {
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .drug{
+    font-size:15px;margin-right:5%;
+  }
+  .div1 {
+    border-radius: 100px;
+    border: 1px solid map-get($colors, primary);
+    text-align: center;
+  }
+}

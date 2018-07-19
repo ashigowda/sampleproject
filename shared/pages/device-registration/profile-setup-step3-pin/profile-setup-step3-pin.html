@@ -1,0 +1,76 @@
+<ion-header>
+    <header-main *ngIf="pinStage == 0" [title]='title'></header-main>
+    <header-main *ngIf="pinStage == 1" [title]='rtitle'></header-main>
+</ion-header>
+
+<ion-content>
+    <form>
+        <ion-card>
+            <ion-label margin-bottom class="medium">
+                <b>
+                    <u>{{create}}</u>
+                </b>
+            </ion-label>
+            <ion-input *ngIf="1 == 0" [type]="'hidden'" maxlength="1" value="{{pin}}" readonly no-border></ion-input>
+            <ion-input *ngIf="1 == 0" [type]="'hidden'" maxlength="1" value="{{pinRepeat}}" readonly no-border></ion-input>
+            <ion-row>
+                <ion-col col-2></ion-col>
+                <ion-col col-2>
+                    <ion-input [type]="isActive ? 'number' : 'password'" maxlength="1" value="{{tPin | slice:0:1}}" readonly no-border></ion-input>
+                </ion-col>
+                <ion-col col-2>
+                    <ion-input [type]="isActive ? 'number' : 'password'" maxlength="1" value="{{tPin | slice:1:2}}" readonly></ion-input>
+                </ion-col>
+                <ion-col col-2>
+                    <ion-input [type]="isActive ? 'number' : 'password'" maxlength="1" value="{{tPin | slice:2:3}}" readonly></ion-input>
+                </ion-col>
+                <ion-col col-2>
+                    <ion-input [type]="isActive ? 'number' : 'password'" maxlength="1" value="{{tPin | slice:3:4}}" readonly></ion-input>
+                </ion-col>
+                <ion-col col-2></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-8></ion-col>
+                <ion-col col-4>
+                    <button ion-button class="button12" (click)="isActive=!isActive;">
+                        <ion-icon [name]="isActive?'eye-off':'eye'" item-right style="color:#006600;font-size:30px; padding-right: 5px;" isActive=false>
+                        </ion-icon>
+                        <p *ngIf="!isActive"> Show</p>
+                        <p *ngIf="isActive"> Hide</p>
+                    </button>
+                </ion-col>
+            </ion-row>
+            <ion-grid>
+                <ion-row *ngFor="let row of matrix">
+                    <ion-col col-4 *ngFor="let col of row">
+                        <button id="{{col}}" (click)="clicked($event)" class="btn"> {{col}} </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4>
+                        <button id="back" (click)="clicked($event)" class="btn">
+                            <ion-icon id="iback" name="backspace" class="icon-white1"></ion-icon>
+                        </button>
+                    </ion-col>
+                    <ion-col col-4>
+                        <button id="0" (click)="clicked($event)" class="btn">0</button>
+                    </ion-col>
+                    <ion-col col-4>
+                        <button ion-button class="btn" (click)="isActive=!isActive;">
+                            <ion-icon [name]="isActive?'eye-off':'eye'" item-right style="color:antiquewhite;font-size:30px" isActive=false>
+                            </ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <button *ngIf="pinStage == 0" [disabled]="pin.length < 4" ion-button class="btn" (click)="repeatPin()">
+                        <ion-icon name="repeat" class="icon-white1"></ion-icon>
+                    </button>
+                    <button *ngIf="pinStage == 1" [disabled]="pinRepeat.length < 4 || !pinConfirmed" ion-button class="btn" (click)="confirmPin()">
+                        <ion-icon name="checkmark" class="icon-white1"></ion-icon>
+                    </button>
+                </ion-row>
+            </ion-grid>
+        </ion-card>
+    </form>
+</ion-content>

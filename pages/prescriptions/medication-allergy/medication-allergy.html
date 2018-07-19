@@ -1,0 +1,96 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Refreshing Medication alliergy page ">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-label margin-top class="textCenter">
+    <u>Step 1 of 4 </u>
+  </ion-label>
+  <ion-row no-margin no-padding>
+    <ion-col col-8 no-margin no-padding>
+      <ion-label>
+        <b>Patient Details</b>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="appointment|async;let profile;else loadingOrError">
+    <contact-details-medium [appointment]="appointment"> </contact-details-medium>
+
+    <ion-row no-padding no-margin>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>None</ion-label>
+          <ion-checkbox [(ngModel)]="none" disabled="false"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>SAIDS</ion-label>
+          <ion-checkbox [(ngModel)]="saids"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding no-margin>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>Sulfa</ion-label>
+          <ion-checkbox [(ngModel)]="sulfa"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>Tetracyclin</ion-label>
+          <ion-checkbox [(ngModel)]="tetra"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>Code ine</ion-label>
+          <ion-checkbox [(ngModel)]="code"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>Erythromyan</ion-label>
+          <ion-checkbox [(ngModel)]="erythromyan"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>Pennicillin</ion-label>
+          <ion-checkbox [(ngModel)]="pencilin"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-item no-lines>
+          <ion-label class="medium dark" no-margin no-padding>Morphine</ion-label>
+          <ion-checkbox [(ngModel)]="morphin"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ng-template #loadingOrError>
+    <ion-card>
+      <page-loading [center]="center"></page-loading>
+    </ion-card>
+  </ng-template>
+
+
+  <ion-footer no-border>
+    <button ion-button block (click)="gotoHealthPage()" class="button-footer" no-margin no-padding>Next</button>
+  </ion-footer>
+
+</ion-content>

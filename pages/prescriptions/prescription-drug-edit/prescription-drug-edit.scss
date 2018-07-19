@@ -1,0 +1,24 @@
+page-prescription-drug-edit {
+  .item {
+    background: none;
+    padding: 0px;
+  }
+  .icon {
+    color: map-get($colors, primary);
+    font-size: 35px;
+  }
+  .label-md {
+    margin: 13px 8px 0px 5% !important;
+  }
+  .searchbar-md .searchbar-clear-icon {
+    right: 6%;
+  }
+  .searchbar-ios .searchbar-clear-icon {
+    right: 6%;
+  }
+  .div1 {
+    border: 1px solid map-get($colors, primary);
+    border-radius: 100px;
+    text-align: center;
+  }
+}

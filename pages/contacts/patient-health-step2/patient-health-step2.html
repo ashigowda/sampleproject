@@ -1,0 +1,41 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  
+  <ion-label class="label-a" margin-top padding-top>Step 2 of 3</ion-label>
+  <ion-label class="primary label-a" margin-top margin-bottom>
+    <u>Co-Marbidities</u>
+  </ion-label>
+
+  <ion-list padding-bottom *ngIf="patientHealth != undefined;else loadingOrError" no-padding no-margin>
+    <ion-item-sliding *ngFor="let patient of details" no-padding no-margin padding-bottom>
+      <ion-item no-padding no-margin (click)="gotoEditPage(patient)">
+        <ion-row padding-left>
+          <ion-col no-margin no-padding class="primary medium">
+            {{patient?.key}}
+          </ion-col>
+          <ion-col *ngIf ='!patient.notes'>No Reports found</ion-col>
+        </ion-row>
+
+        <ion-row padding-left>
+          <ion-col class="dark y-small" *ngIf='patient.from'>From:{{patient.from | date}}</ion-col>
+          <ion-col class="dark y-small" *ngIf='patient.to' float-right>Until:{{patient.to | date}}</ion-col>
+        </ion-row>
+        <ion-row padding-left *ngIf="patient.notes">
+          <ion-col text-wrap class="z-small" >Notes:{{patient.notes}}</ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ng-template #loadingOrError>
+      <page-loading-list></page-loading-list>
+    </ng-template>
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button (click)="gotoNextPage()" class="button-footer">Next</button>
+</ion-footer>

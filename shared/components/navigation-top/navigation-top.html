@@ -1,0 +1,6 @@
+<ion-card *ngFor='let item of navList' (click)="gotoPage(item.page,item.index)">
+    <ion-item no-lines detail-push>
+        <ion-icon item-left name="{{item.icon}}" class="icon-small2"></ion-icon>
+        <ion-label no-margin>{{item.order}}</ion-label>
+    </ion-item>
+</ion-card>

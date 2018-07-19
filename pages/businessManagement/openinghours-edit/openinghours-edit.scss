@@ -1,0 +1,45 @@
+page-openinghours-edit {
+  .label-md {
+    font-weight: bold;
+    margin: 0px !important
+  }
+  .label-ios {
+    font-weight: bold;
+    margin: 0px !important
+  }
+  .div2 {
+    margin-top: 10%;
+    margin-left: 76%;
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    border-radius: 100%;
+    background: map-get($colors, primary);
+  }
+  .subTitle {
+    background: map-get($colors, dark-x)!important;
+    width: 100%;
+    min-height: 40px;
+    text-align: center;
+    color: map-get($colors, black-a);
+    ;
+    padding: 5px;
+  }
+  .icon2 {
+    color: white;
+    padding-left: 16px;
+    padding-top: 10px;
+    font-size: 35px;
+  }
+  .label-a {
+    color: white !important;
+    margin: 0px !important;
+    background:lightgray;
+  }
+  .item-md{
+    background: none!important;
+  }
+  .borderColor{
+    border-bottom:1px solid #006600
+  }
+}

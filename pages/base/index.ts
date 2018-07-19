@@ -1,0 +1,1 @@
+export { RegistrationBase } from './RegistrationBase';

@@ -1,0 +1,118 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-buttons left>
+            <button *ngIf="status != 'Open'" (click)="backHistoryPage()" ion-button icon-left clear small>
+                          <ion-icon name="arrow-back" class="icon1"></ion-icon>
+            </button>
+            <button *ngIf="status == 'Open'" (click)="backHistoryPage1()" ion-button icon-left clear small>
+                    <ion-icon name="arrow-back" class="icon1"></ion-icon>
+             </button>
+        </ion-buttons>
+        <ion-title>KA123HJGHJ
+            <ion-icon name="medkit"></ion-icon>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content style="background:#f5f5f5">
+    <ion-row>
+        <ion-col col-9>
+            <ion-label class="message" text-wrap padding>Hello paru, this is Asha how can i help you? </ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="notesmargin">05:20</ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-3>
+            <ion-label class="notesAdd">05:22</ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="message1" text-wrap padding>I just want to know about your application. </ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-3>
+            <ion-label class="notesAdd">05:23</ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="message1" text-wrap padding>Can you please explain... </ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-9>
+            <ion-label class="message" text-wrap padding>Yeah sure.. </ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="notesmargin">05:25</ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-3>
+            <ion-label class="notesAdd">05:23</ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="message1" text-wrap padding>Can you please explain... </ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-9>
+            <ion-label class="message" text-wrap padding>Yeah sure.. </ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="notesmargin">05:25</ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-3>
+            <ion-label class="notesAdd">05:23</ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="message1" text-wrap padding>Can you please explain... </ion-label>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-9>
+            <ion-label class="message" text-wrap padding>Yeah sure.. </ion-label>
+        </ion-col>
+        <ion-col>
+            <ion-label class="notesmargin">05:25</ion-label>
+        </ion-col>
+    </ion-row>
+
+    <div *ngIf="status == 'Open'">
+        <div *ngIf="messages != null">
+            <ion-row *ngFor="let message of messages">
+
+                <ion-col col-9>
+                    <ion-label class="message" text-wrap padding>{{message.my_message}}</ion-label>
+                </ion-col>
+                <ion-col>
+                    <strong style="color:#006600" margin no-padding>{{message.currentDate | date :"HH:mm"}}</strong>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+
+    <ion-fab bottom right *ngIf="status == 'Open'">
+        <button ion-fab><ion-icon name = "create" class = "fab1"></ion-icon></button>
+        <ion-fab-list side="left">
+            <button ion-fab class="btn5" (click)="endChat(status)">End Chat</button>
+            <button ion-fab class="btn5">Email Chat</button>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>
+
+<ion-footer no-padding no-margin *ngIf="status == 'Open'">
+    <ion-row>
+        <textarea placeholder="Type Here.." class="type" [(ngModel)]="my_message" no-padding></textarea>
+        <button ion-button (click)="send(my_message)">Send</button>
+    </ion-row>
+</ion-footer>

@@ -1,0 +1,31 @@
+page-ebusiness-verify-upload-docs {
+  .item-md.item-block .item-inner {
+    padding-right: 0px !important;
+    border-bottom: 1px solid #dedede;
+    background:none!important;
+  }
+  .label-class {
+    margin-left: 5%;
+    color: map-get($colors, dark);
+    font-size: 14px;
+  }
+  .label-md {
+    margin: 0px 8px 0px 5% !important;
+    color: map-get($colors, dark);
+    font-size: 14px !important;
+  }
+  .star {
+    color: #ff3300;
+    font-size: 20px;
+    padding-top: 60%;
+  }
+  .col {
+    padding: 0px;
+  }
+  .button-choose {
+    margin-right: 5% !important;
+  }
+  .item-md{
+    background: none!important;
+  }
+}

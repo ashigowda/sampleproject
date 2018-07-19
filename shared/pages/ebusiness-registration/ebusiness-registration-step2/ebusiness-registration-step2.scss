@@ -1,0 +1,21 @@
+page-ebusiness-registration-step2 {
+  .item-md.item-block .item-inner {
+    padding-right: 0px;
+  }
+  .label-a {
+    color: map-get($colors, white-a) !important;
+    margin: 0px !important;
+  }
+  .label-md {
+    margin: 5px 8px 5px 5% !important;
+    color: map-get($colors, dark);
+  }
+  .label-wp {
+    margin: 5px 8px 5px 5% !important;
+    color: map-get($colors, dark);
+  }
+  .label-ios {
+    margin: 5px 8px 5px 5% !important;
+    color: map-get($colors, dark);
+  }
+}

@@ -1,0 +1,50 @@
+page-appointment-history {
+  .col {
+    padding: 0px;
+  }
+  .list-md {
+    margin: 0px;
+  }
+  .list-ios {
+    margin: 0px;
+  }
+  .label{
+    margin:10px 5px 5px 10px !important;
+  }
+  .item-md {
+    border-bottom: 1px solid map-get($colors, dark);
+    padding-left: 0px !important;
+  }
+  .item-ios {
+    border-bottom: 1px solid map-get($colors, dark);
+    padding-left: 0px !important;
+  }
+  .status {
+    background-color: map-get($colors, change);
+    color: map-get($colors, white-a);
+  }
+  .border {
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .border-a {
+    border: 1px solid map-get($colors, white-a) !important;
+    width: 60px;
+  }
+  ion-app [padding-bottom] {
+    padding-bottom: 8px !important;
+  }
+  ion-app [padding-top] {
+    padding-top: 8px !important;
+  }
+}
+
+ion-app [padding-bottom] {
+  padding-bottom: 8px !important;
+}
+
+ion-app [padding-left] {
+  padding-left: 8px !important;
+}

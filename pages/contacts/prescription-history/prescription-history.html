@@ -1,0 +1,56 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content no-margin>
+
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content refreshingText="Refreshing Prescription List">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list *ngIf="prescriptions | async as prescription1;else loadingOrError" lines>
+    <div *ngFor="let prescription of prescription1 ">
+      <ion-item lines no-padding no-margin>
+        <div (click)="viewprescription(prescription._id)">
+          <ion-row padding-left padding-top>
+            <ion-col class="medium primary" text-capitalize no-padding>
+
+              {{prescription?.member?.firstName }}{{prescription?.member?.lastName}}
+              <i class="age" no-padding no-margin>
+                ({{prescription?.member?.age}} years)</i>
+            </ion-col>
+            <ion-col class="number" no-padding>
+              <b float-right padding-right>{{prescription?.prescriptionId}}</b>
+            </ion-col>
+          </ion-row>
+
+          <ion-row no-margin padding-left>
+            <ion-col class="phoneIcon" no-padding>
+              <ion-icon name="call" class="phone"></ion-icon> {{prescription?.member?.phone}}</ion-col>
+            <ion-col text-capitalize no-padding>
+              <p float-right id="doctor" padding-right>
+                <img class="doctorIcon" src='../../../assets/imgs/doctor.jpg' /> Dr.{{prescription?.doctor?.firstName}}{{prescription?.doctor?.lastName}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row padding-bottom padding-left no-margin>
+            <ion-col class="small emailIcon" no-padding no-margin>
+              <ion-icon name="mail" class="email"></ion-icon>
+              {{prescription?.member?.email}}
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ng-template #loadingOrError>
+    <page-loading-list></page-loading-list>
+  </ng-template>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

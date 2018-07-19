@@ -1,0 +1,53 @@
+page-ebusiness-verify {
+  .card {
+    background-color: map-get($colors, primary);
+    height: 45px !important;
+    vertical-align: center; // border-radius:5px;
+  }
+  .button-card {
+    width: calc(100%-20px) !important;
+    margin-left: 10px !important;
+    vertical-align: middle !important;
+    text-align: center;
+    color: map-get($colors, white-a);
+  }
+  .icon {
+    color: map-get($colors, white-a) !important;
+    padding: 0px !important;
+    margin-top: 16px !important;
+  }
+  .item {
+    background: none !important;
+  }
+  .label {
+    color: map-get($colors, white-a) !important;
+    margin: 0px !important;
+  }
+  .border {
+    font-size: 17px;
+    font-weight: bold;
+    border: 1px solid map-get($colors, dark) !important;
+    background-color: map-get($colors, dark-x);
+    color: map-get($colors, black-a);
+  }
+  .border1 {
+    border: 1px solid map-get($colors, dark) !important;
+    font-size: 15px;
+    height: 70px;
+  }
+  .button {
+    width: calc(100% - 20px);
+    margin: 10px;
+  }
+  .create {
+    color: map-get($colors, primary) !important;
+    font-size: 20px !important;
+  }
+  .trash {
+    color: map-get($colors, danger) !important;
+    font-size: 20px !important;
+  }
+  .text{
+    color:#666666!important;font-size:12px!important;margin-top:-12px!important;
+  }
+}

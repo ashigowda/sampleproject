@@ -1,0 +1,44 @@
+<ion-header>
+    <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+    <ion-label class="textCenter">
+        <b>
+            <u>Step 1 of 2 </u>
+        </b>
+    </ion-label>
+    <ion-label class="medium">
+        <b>Personal Details:</b>
+    </ion-label>
+    <ion-card >
+
+        <ion-label class="medium light">Email:</ion-label>
+        <ion-input type="email" placeholder="Email"  *ngIf = "email != false" [(ngModel)]="profile.email" margin-bottom (keyup.enter)="a.setFocus()"></ion-input>
+        <ion-input  *ngIf = "email == false || error == true" type="email" placeholder="Email" class="border" [(ngModel)]="profile.email" margin-bottom (keyup.enter)="a.setFocus()"></ion-input>
+
+        <ion-label class="medium light">Date Of Birth:</ion-label>
+        <ion-input type="text" placeholder="Date of Birth"  *ngIf = "dob != false" [(ngModel)]="profile.dateOfBirth" margin-bottom #a ></ion-input>
+        <ion-input *ngIf = "dob == false || error == true" type="text" placeholder="Date of Birth" class="border" [(ngModel)]="profile.dateOfBirth" margin-bottom #a ></ion-input>
+        
+        <ion-label class="medium light">Gender:</ion-label>
+        <ion-item no-lines no-padding margin-bottom>
+            <ion-select  *ngIf = "validate != false" [(ngModel)]="profile.gender" interface="action-sheet">
+                <ion-option value="female">Female</ion-option>
+                <ion-option value="male">Male</ion-option>
+            </ion-select>
+
+            <ion-select *ngIf = "validate == false || error == true" [(ngModel)]="profile.gender" class = "border" interface="action-sheet">
+                <ion-option value="female">Female</ion-option>
+                <ion-option value="male">Male</ion-option>
+            </ion-select>
+
+        </ion-item>
+        
+    </ion-card>
+    <ion-label *ngIf = "validate == false || email == false || dob == false" class="valid">* Please fill all the required fields</ion-label>
+</ion-content>
+
+<ion-footer no-border no-padding no-margin>
+    <button ion-button class="button-footer" type = "submit" (click)="next()">Next</button>
+</ion-footer>

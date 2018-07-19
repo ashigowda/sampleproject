@@ -1,0 +1,61 @@
+page-appointment-select {
+  .devider {
+    text-align: center;
+    background: map-get($colors, primary);
+    font-size: 18px;
+    font-weight: bold;
+    color: map-get($colors, white-a) !important;
+  }
+  .label {
+    font-weight: normal;
+  }
+  .col {
+    padding: 0px;
+  }
+  .status {
+    background-color: map-get($colors, change);
+    color: map-get($colors, white-a);
+  }
+  .border {
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .label-md {
+    margin: 0px !important; // color: #666666;
+  }
+  .list-md {
+    margin: 0px;
+  }
+  .list-ios {
+    margin: 0px;
+  }
+  .item-md {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid map-get($colors, dark);
+  }
+  .item-ios {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid map-get($colors, dark);
+  }
+  .appointmentDoctor{
+    color:black;font-size:13px;
+  }
+  .button {
+    text-align: center;
+  }
+  .border-b {
+    border: 1px solid map-get($colors, primary);
+  }
+  .label-c {
+    color: map-get($colors, white-a);
+  }
+  ion-app.md [padding-bottom] {
+    padding-bottom: 0px !important;
+  }
+}

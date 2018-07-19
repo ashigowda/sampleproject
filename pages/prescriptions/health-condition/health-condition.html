@@ -1,0 +1,96 @@
+<ion-header>
+        <header-main [title]='title'></header-main>
+      </ion-header>
+      
+      <ion-content>
+
+          <ion-refresher (ionRefresh)="refresh($event)">
+              <ion-refresher-content refreshingText="Refreshing Health Conditon Page">
+              </ion-refresher-content>
+            </ion-refresher>
+
+        <ion-label margin-top class="textCenter">
+          <u>Step 2 of 4 </u>
+        </ion-label>
+        <ion-row no-margin no-padding>
+          <ion-col col-8 no-margin no-padding>
+            <ion-label>
+              <b>Patient Details</b>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      <div *ngIf="appointment|async;let profile;else loadingOrError">
+        <contact-details-medium [appointment] ="appointment"> </contact-details-medium>
+      
+        <ion-row >
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>Diabetes</ion-label>
+              <ion-checkbox [(ngModel)]="diabetes" disabled="false"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>Fever</ion-label>
+              <ion-checkbox [(ngModel)]="fever"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      
+        <ion-row>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>High Cholestral</ion-label>
+              <ion-checkbox [(ngModel)]="high"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>Caugh</ion-label>
+              <ion-checkbox [(ngModel)]="caugh"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      
+        <ion-row>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>high Bp</ion-label>
+              <ion-checkbox [(ngModel)]="bp"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>Thyroid</ion-label>
+              <ion-checkbox [(ngModel)]="thyroid"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      
+        <ion-row>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>Asthma</ion-label>
+              <ion-checkbox [(ngModel)]="asthma"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label class="medium dark" no-margin no-padding>Ulcer</ion-label>
+              <ion-checkbox [(ngModel)]="ulcer"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ng-template #loadingOrError>
+        <ion-card>
+      <page-loading [center]="center"></page-loading>
+    </ion-card>
+    </ng-template>
+  
+      
+        <ion-footer no-border>
+          <button ion-button block (click)="gotoPrescriptionAddPage()" class="button-footer" no-margin no-padding>Next</button>
+        </ion-footer>
+      </ion-content>
+      

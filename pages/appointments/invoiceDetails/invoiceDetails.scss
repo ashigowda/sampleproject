@@ -1,0 +1,99 @@
+page-invoiceDetails {
+  
+  .text-input-md {
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+    height: 27px !important;
+    padding-bottom: 2 !important;
+    text-align: center !important;
+  }
+  .border {
+    border-top: 1px solid map-get($colors, dark);
+    border-left: 1px solid map-get($colors, dark);
+  }
+
+  .border-a {
+    color: map-get($colors, blue-a) !important;
+    font-size: 14px;
+    border: 1px solid map-get($colors, blue-a);
+    width: 95px !important;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .border-bottom {
+    border-bottom: 1px solid map-get($colors, dark);
+  }
+  .border-right {
+    border-right: 1px solid map-get($colors, dark);
+  }
+  ion-input {
+    border: none;
+    color: map-get($colors, dark);
+    border-radius: 5px;
+    height: 25px;
+    width: 100%;
+    text-align: center !important;
+  }
+  
+  .button-add1 {
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    background: map-get($colors, primary);
+    float: right;
+    bottom: 110px;
+    right: 20px !important;
+    position: fixed;
+  }
+  .label-b {
+    font-size: 12px;
+    color: map-get($colors, primary);
+    ;
+    margin-left: -7%;
+  }
+  .row{
+    height:23px;
+    color:black;
+  }
+  .status {
+    background-color: map-get($colors, blue-a);
+    color: map-get($colors, white-a)!important;
+  }
+  .border-1 {
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .background{
+    background-color: lightgray;
+    margin-left:10px;
+    margin-right:10px;
+    height:35px;
+  }
+  .item-md{
+    padding-left:0px;
+    margin-left:10px;
+    width:calc(100%-20px)!important;
+    background: none!important;
+    border-right:2px solid lightgray;
+    border-left:2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+  }
+  .item-block {
+    width:calc(100%-20px)!important;;
+    max-width: calc(100% - 20px)!important;
+  }
+  .label-md {
+    margin: 3px 8px 3px 6px;
+    color: map-get($colors, dark);
+    font-size: 16px;
+  }
+  // ion-app.md [right] {
+  //   padding-right: 5px !important;
+  // }
+  
+}
+ion-app.md [right] {
+  padding-right: 5px !important;
+}

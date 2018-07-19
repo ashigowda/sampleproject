@@ -1,0 +1,69 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content no=padding no-margin>
+  <ion-label no-padding no-margin>Document Type:
+    <b class="star">*</b>
+  </ion-label>
+  <ion-item  no-lines no-padding no-margin>
+    <ion-select [(ngModel)]="document" interface="action-sheet" no-lines no-margin>
+      <ion-option value="drug">Drug Licence</ion-option>
+      <ion-option value="id">Id</ion-option>
+      <ion-option value="address1">Address Proof</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-label no-padding no-margin>Document Name:
+    <b class="star">*</b>
+  </ion-label>
+  <ion-item  no-lines no-padding no-margin margin-bottom *ngIf="document == null">
+    <ion-select interface="action-sheet">
+      <ion-option></ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item  no-lines *ngIf="document == 'id'">
+    <ion-select [(ngModel)]="id" interface="action-sheet" text-wrap>
+      <ion-option value="vote">Voter Id</ion-option>
+      <ion-option value="pan">PAN</ion-option>
+      <ion-option value="driving">Driving Licence</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item  no-lines *ngIf="document == 'address1'">
+    <ion-select [(ngModel)]="address1" interface="action-sheet" text-wrap>
+      <ion-option value="passport">PassPort</ion-option>
+      <ion-option value="gas">Gas Connection Bill</ion-option>
+      <ion-option value="electric">Electricity Bill</ion-option>
+      <ion-option value="bank">Bank Passbook</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item  no-lines *ngIf="document == 'drug'">
+    <ion-select [(ngModel)]="drug" interface="action-sheet" text-wrap>
+      <ion-option value="retail">Retail Drug Licence</ion-option>
+      <ion-option value="wholesale">Wholesale Drug Licence</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-label class="medium dark" no-margin no-padding> Notes:</ion-label>
+  <ion-textarea no-padding no-margin></ion-textarea>
+  <ion-row>
+    <ion-col>
+      <p style="color:#ff3300;font-size:14px" float-right text-wrap>{{file_name}}</p>
+    </ion-col>
+    <ion-col col-5 class="button-choose">
+      <button ion-button float-right (click)="uploadFile()">Choose File</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-footer no-border>
+    <button ion-button (click)="gotoHomePage(document)" class="button-footer" disabled>Upload</button>
+  </ion-footer>
+
+  <ion-footer no-border *ngIf="file_name  != null && 'undefined'">
+    <button ion-button (click)="gotoHomePage(document)" class="button-footer">Upload</button>
+  </ion-footer>
+
+</ion-content>

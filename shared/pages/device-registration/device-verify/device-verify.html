@@ -1,0 +1,30 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-label class="notes" text-wrap>The mobile number you have entered is
+    <b>{{input$.countryCode}} - {{input$.phone}}</b>
+  </ion-label>
+  <ion-row margin-bottom>
+    <ion-label class="x-small">Want to edit the number?
+      <button ion-button class="button-none x-small" (click)="back()">Click Here!</button>
+    </ion-label>
+  </ion-row>
+
+  <ion-card>
+    <ion-label>Enter OTP:</ion-label>
+    <ion-input type="number" placeholder="OTP" [(ngModel)]="input$.otp"></ion-input>
+    <ion-label margin-bottom class="x-small light" text-wrap>
+      <i>Enter OTP that we have sent to your mobile number</i>
+    </ion-label>
+  </ion-card>
+  <ion-label *ngIf="otp == true" class="error">* Please enter valid OTP</ion-label>
+  <ion-card *ngIf="response">
+    <ion-label class="medium wrap">{{response}}</ion-label>
+  </ion-card>
+</ion-content>
+
+<ion-footer no-border no-padding no-margin>
+  <button ion-button class="button-footer" (click)="verifyDevice()">Verify</button>
+</ion-footer>

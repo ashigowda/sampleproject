@@ -1,0 +1,39 @@
+<ion-row no-margin no-padding (click)="toggleDetails1(data1)">
+  <ion-col col-4 no-margin no-padding>
+    <ion-label class="label">
+      <b>Symptoms</b>
+    </ion-label>
+  </ion-col>
+  <ion-col no-margin no-padding>
+    <ion-icon *ngIf="data1.showDetails != true" name="ios-arrow-forward" class="iconForword"></ion-icon>
+    <ion-icon *ngIf="data1.showDetails == true" name="ios-arrow-down" class="iconForword"></ion-icon>
+  </ion-col>
+</ion-row>
+
+<ion-card *ngIf="data1.showDetails">
+  <ion-row style="margin:5px" *ngIf="appointment|async;let appointment;else loadingOrError">
+    <div class="div2">{{appointment?.symtoms}}</div>
+  </ion-row>
+</ion-card>
+
+<ion-row no-margin no-padding (click)="toggleDetails(data)">
+  <ion-col col-4 no-margin no-padding>
+    <ion-label class="label">
+      <b>Notes</b>
+    </ion-label>
+  </ion-col>
+  <ion-col no-margin no-padding>
+    <ion-icon *ngIf = "data.showDetails != true" name="ios-arrow-forward" class="iconForword"></ion-icon>
+    <ion-icon *ngIf="data.showDetails == true" name="ios-arrow-down" class="iconForword"></ion-icon>
+  </ion-col>
+</ion-row>
+
+<ion-card style="padding:8px !important" *ngIf="data.showDetails">
+  <div *ngIf="appointment|async;let appointment;else loadingOrError">
+    {{appointment?.notes}}
+  </div>
+</ion-card>
+
+<ng-template #loadingOrError>
+  <page-loading></page-loading>
+</ng-template>

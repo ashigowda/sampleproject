@@ -1,0 +1,30 @@
+page-chat-register {
+  .icon1 {
+    font-size: 35px;
+  }
+  hr {
+    border-top: 2px solid map-get($colors, primary);
+  }
+  .icon-a {
+    font-size: 30px;
+    color: map-get($colors, primary);
+    margin-left: 85%;
+  }
+  .label1 {
+    margin-left: 5% !important;
+    font-size: 16px;
+    color: map-get($colors, dark);
+    font-weight: bold;
+  }
+  .label-ios {
+    margin: 0px !important;
+  }
+  .text {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .scroll-content {
+    overflow: hidden;
+  }
+}

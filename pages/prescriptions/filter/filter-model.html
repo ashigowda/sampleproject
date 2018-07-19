@@ -1,0 +1,51 @@
+<div class="model">
+
+  <ion-content>
+    <ion-item class="background">
+      <ion-row>
+        <ion-col col-9>
+          <b>Filter</b>
+        </ion-col>
+        <ion-col (click)="dismiss()"> Close</ion-col>
+      </ion-row>
+    </ion-item>
+    <!-- <ion-item><b>Doctor</b></ion-item> -->
+    <!-- <ion-label>Doctor:</ion-label> -->
+    <ion-item>
+      <ion-row class="medium" (click)="toggleDetails(data)">
+        <ion-col col-10>
+          <b>Doctor</b>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="icon-size" *ngIf="data.showDetails != true" name="ios-arrow-forward"></ion-icon>
+          <ion-icon class="icon-size" *ngIf="data.showDetails == true" name="ios-arrow-down"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <div *ngFor = "let user of user|async">
+        <ion-row class="x-small" *ngIf="data.showDetails == true" >
+          <ion-col col-10 text-capitalize (ionOnChange) = "doctor()">{{user?.user?.firstName}}{{user?.user?.lastName}}</ion-col>
+         <ion-col col-2><ion-checkbox [(ngModel)] = "user.user._id"></ion-checkbox></ion-col> 
+        </ion-row>
+      </div>
+    </ion-item>
+    <!-- <ion-item no-padding margin-bottom>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-icon name="arrow"></ion-icon>
+      </ion-row>
+       <ion-select >
+          <ion-option value="female">Female</ion-option>
+          <ion-option value="male">Male</ion-option>
+        </ion-select>
+    </ion-item> -->
+
+    <ion-item>
+      <b>Drugs</b>
+    </ion-item>
+    <ion-item>
+      <b>Symptoms</b>
+    </ion-item>
+  </ion-content>
+</div>

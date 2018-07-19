@@ -1,0 +1,25 @@
+<div *ngIf="profile as profile;else loadingOrError">
+  <ion-label class="x-small">Firstname:</ion-label>
+  <ion-input type="text" placeholder="Firstname" [(ngModel)]="profile.firstName" maxLength="50" (keyup.enter)="a.setFocus()"></ion-input>
+  <ion-label class="x-small">Lastname:</ion-label>
+  <ion-input type="text" placeholder="Lastname" [(ngModel)]="profile.lastName" maxLength="50" #a></ion-input>
+  <ion-label class="x-small">Gender:</ion-label>
+  <ion-item no-lines no-padding no-margin>
+    <ion-select [(ngModel)]="profile.gender" interface="action-sheet">
+      <ion-option value="female">Female</ion-option>
+      <ion-option value="male">Male</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-label class="x-small" maxLength="50">Email:</ion-label>
+  <ion-input type="email" placeholder="Email" [(ngModel)]="profile.email" (keyup.enter)="b.setFocus()"></ion-input>
+  <ion-label class="x-small">Phone No:</ion-label>
+  <ion-input type="tel" placeholder="Phone Number" [(ngModel)]="profile.phone" maxLength="10" #b></ion-input>
+  <ion-label class="x-small">Date Of Birth:</ion-label>
+  <ion-item no-padding>
+    <ion-datetime displayFormat="YYYY-MM-DD" placeholder="Date of Birth" [(ngModel)]="profile.dateOfBirth" margin-bottom></ion-datetime>
+  </ion-item>
+</div>
+
+<ng-template #loadingOrError>
+  <page-loading [center]='center'></page-loading>
+</ng-template>

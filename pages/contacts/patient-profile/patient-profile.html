@@ -1,0 +1,46 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="patient|async; let patient;else loadingOrError">
+   
+    <ion-row ion-item text-center class="item-trns">
+      <ion-avatar (click)="presentProfileModal()">
+        <img src="assets/imgs/blank-avatar.jpg">
+      </ion-avatar>
+      <h2 text-capitalize class="primary">{{patient?.member?.firstName}} {{patient?.member?.lastName}}</h2>
+      <p>({{patient?.member?.age }} Years)</p>
+    </ion-row>
+
+    <ion-row no-margin no-padding>
+      <ion-col col-1 no-paddding no-margin></ion-col>
+      <ion-col col-1 no-margin no-padding>
+        <ion-icon name="call" no-margin no-padding class="icon-small2"></ion-icon>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-label no-margin margin-left class="x-small">{{patient?.member?.phone}}</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-margin no-padding>
+      <ion-col col-1 no-paddding no-margin></ion-col>
+      <ion-col col-1 no-margin no-padding>
+        <ion-icon name="mail" no-margin no-padding class="icon-small2"></ion-icon>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-label no-margin margin-left no-margin no-padding class="x-small">{{patient?.member?.email}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ng-template #loadingOrError>
+      <page-loading [center]= 'center'></page-loading>
+    </ng-template>
+
+</ion-content>
+
+<ion-footer no-border>
+  <button ion-button class="button-footer" *ngIf="patient|async; let patient" (click)="edit(patient?._id)"> Edit Profile</button>
+</ion-footer>

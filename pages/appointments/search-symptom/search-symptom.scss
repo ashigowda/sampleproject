@@ -1,0 +1,26 @@
+page-search-symptom {
+  h4 {
+    text-align: center;
+  }
+  [col-auto] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    border: 1px solid lightgray;
+    border-radius: 100px;
+    margin: 4px;
+  }
+  .row {
+    margin-left: 3% !important;
+    margin-right: 5px !important;
+  }
+  .font{
+      font-size:15px!important;
+  }
+}
+
+.searchbar-md .searchbar-clear-icon {
+  right: 30px!important;
+}

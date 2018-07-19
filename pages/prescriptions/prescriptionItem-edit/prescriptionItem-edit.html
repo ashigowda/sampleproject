@@ -1,0 +1,39 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="prescription|async;let prescription;else loadingOrError">
+    <ion-item-sliding *ngFor="let prescription of prescription?.items " no-padding no-margin>
+
+      <ion-item detail-push lines no-padding no-margin>
+        <ion-row no-padding no-margin>
+          <ion-col col-3 no-padding no-margin class="x-small" text-wrap> {{prescription.medicine}}-{{prescription.composition}}</ion-col>
+          <ion-col col-2 no-padding no-margin class="x-small">
+            <span *ngIf="prescription.morningDose">1-</span>
+            <span *ngIf="prescription.morningDose != true">0-</span>
+            <span *ngIf="prescription.afternoonDose">1-</span>
+            <span *ngIf="prescription.afternoonDose != true">0-</span>
+            <span *ngIf="prescription.eveningDose">1</span>
+            <span *ngIf="prescription.eveningDose != true">0</span>
+          </ion-col>
+          <ion-col col-2 no-padding no-margin class="x-small"> {{prescription.timings}}times</ion-col>
+          <ion-col col-2 no-padding no-margin class="x-small"> {{prescription.noOfDays}}days</ion-col>
+          <ion-col col-3 text-wrap no-padding no-margin class="x-small"> {{prescription.beforeAfter}}</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button class="border-a" (click)="edit(prescription._id)">
+          <ion-icon name="create" class="icon-small"> </ion-icon>Edit</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ng-template #loadingOrError>
+    <page-loading [center]='center'></page-loading>
+  </ng-template>
+
+</ion-content>
+<ion-footer no-border>
+  <button ion-button (click)="details()" class="button-footer">Back to prescription</button>
+</ion-footer>

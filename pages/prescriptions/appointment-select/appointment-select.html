@@ -1,0 +1,76 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="refresh($event)">
+        <ion-refresher-content refreshingText="Refreshing Appointment">
+        </ion-refresher-content>
+      </ion-refresher>
+
+  <!-- <add-circle-button *ngIf="appointmentList.length == 0 || appointmentList == null" (click)="bookAppointment()" class="button-add"></add-circle-button> -->
+
+  <ion-item-group  detail-push no-padding *ngIf = "appointmentList|async as appointment;else loadingOrError">
+ 
+      <ion-item no-lines no-padding class="devider" no-padding no-margin *ngIf='appointment.status == "closed"'>
+        <ion-label class="label-c" no-margin no-padding>
+          <b>{{appointment.appointmentDate | date}}</b>
+        </ion-label>
+      </ion-item>
+
+      <ion-list *ngFor="let appointment of appointment" lines >
+        <ion-item-sliding *ngIf='appointment.status == "closed"'>
+          <ion-item lines padding-left padding-top no-margin>
+            <ion-row no-margin>
+              <ion-col class="primary medium" text-capitalize>
+                {{appointment?.member?.firstName}} {{appointment?.member?.lastName}}
+              </ion-col>
+
+              <ion-col text-capitalize>
+                <p float-right padding-right class="large" id="doctor">
+                  <img src="../../../assets/imgs/images.jpg" class="doctorIcon" no-padding no-margin> Dr.{{appointment?.doctor?.firstName}} {{appointment?.doctor?.lastName}}</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row no-padding no-margin>
+              <ion-col class="phoneIcon">
+                <ion-icon name="call" class="phone"></ion-icon> {{appointment?.member?.phone}}</ion-col>
+              <ion-col>
+                <p float-right padding-right class="symptom">{{appointment.symtoms}} </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row padding-bottom no-margin>
+              <ion-col>
+                <div class="timeIcon"> <ion-icon name="timer" class="time"></ion-icon> {{appointment?.appointmentDate | date}} {{appointment?.appointmentTime}}</div>
+              </ion-col>
+              <ion-col class="z-small" col-4 *ngIf="appointment?.status != 'closed'"> Due:{{appointment?.dueIn}}hr</ion-col>
+              <ion-col col-3 padding-right>
+                <b class="status border" float-right padding-right>{{appointment?.status}}</b>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col col-4></ion-col>
+              <ion-col col-4>
+                <button ion-button text-wrap (click)="select()" style="width:100%">
+                  <ion-icon name="checkmark-circle-outline" class="label-c large" margin-right></ion-icon> Select</button>
+              </ion-col>
+              <ion-col col-4></ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-item-sliding>
+ 
+        <ion-footer *ngIf="show == true">
+          <button ion-button block class="button-footer" no-margin no-padding (click)="gotoStep3(appointment._id)">Write Prescription</button>
+        </ion-footer>
+      </ion-list>
+  </ion-item-group>
+
+  <ng-template #loadingOrError>
+      <page-loading [center]= 'center'></page-loading>
+    </ng-template>
+
+  <add-circle-button   (click)="bookAppointment()" class="button-add"></add-circle-button>
+</ion-content>

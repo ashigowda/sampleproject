@@ -1,0 +1,53 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+<ion-content>
+  <header-sub [profile]="profile" [business]="business"></header-sub>
+
+  <ion-grid>
+    <ion-row text-center>
+      <ion-col class="orders" (click)="gotoPatientList(1)">
+        <div class="orderss">
+          <ion-icon name="contacts" class="icon-style"></ion-icon>
+
+          <div class="paddingtop">Patients</div>
+        </div>
+      </ion-col>
+      <ion-col class="orders" (click)="gotoPatientList(2)" >
+        <div class="orderss">
+          <ion-icon name="calendar" class="icon-style"></ion-icon>
+          <div>Appointments</div>
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col class="orders" col-6 (click)="gotoPatientList(3)">
+        <div class="orderss">
+          <ion-icon name="list-box" class="icon-style"></ion-icon>
+          <div>Prescriptions</div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <div *ngIf="appointmentList | async as appointmentList">
+
+    <ion-card class="card1 small" no-padding>
+      The next appointment is at {{appointmentList[0]?.appointmentTime}} with
+      <b text-capitalize>{{appointmentList[0]?.member?.firstName}} {{appointmentList[0]?.member?.lastName}}</b>
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="notifications" class="icon-small1"></ion-icon>
+        </ion-col>
+        <ion-col> Due:
+          <b class="color"> 10min </b>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+  <div class="button-add" (click)="gotoChatPage()" bottom right>
+    <ion-icon name="chatboxes" class="icon-add" style="padding-left: 14px!important;padding-top: 12px!important"></ion-icon>
+  </div>
+</ion-content>

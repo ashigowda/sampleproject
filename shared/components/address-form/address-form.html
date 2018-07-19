@@ -1,0 +1,27 @@
+<div>
+    <ion-label class="x-small">Address Type:</ion-label>
+    <ion-item no-lines no-margin no-padding>
+        <ion-select [(ngModel)]="address.addressName" interface="action-sheet">
+            <ion-option value="home">Home</ion-option>
+            <ion-option value="office">Office</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-label class="x-small">Address:</ion-label>
+    <ion-input type="text" placeholder="Address" [(ngModel)]="address.address"  maxLength = "50" (keyup.enter)="a.setFocus()"></ion-input>
+
+    <ion-label class="x-small">Area:</ion-label>
+    <ion-input type="text" placeholder="Area" [(ngModel)]="address.area" maxLength = "50" #a (keyup.enter)="b.setFocus()"></ion-input>
+
+    <ion-label class="x-small">City:</ion-label>
+    <ion-input type="text" placeholder="City" [(ngModel)]="address.city" maxLength = "50" #b (keyup.enter)="c.setFocus()"></ion-input>
+
+    <ion-label class="x-small">State:</ion-label>
+    <ion-input type="text" placeholder="State" [(ngModel)]="address.state" maxLength = "50" #c (keyup.enter)="d.setFocus()"></ion-input>
+
+    <ion-label class="x-small">Country:</ion-label>
+    <ion-input type="text" placeholder="Country" [(ngModel)]="address.country" maxLength = "50" #d (keyup.enter)="e.setFocus()"></ion-input>
+
+    <ion-label class="x-small">Pincode:</ion-label>
+    <ion-input type="tel" placeholder="Pincode" [(ngModel)]="address.pincode" maxLength = "6" margin-bottom #e ></ion-input>
+</div>
